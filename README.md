@@ -9,3 +9,5 @@ Accept Game
 - hihocoder1093 / SPFA
 ### 2017-12-4
 - leetcode740 / dp
+### 2017-12-5
+- leetcode738 / 贪心
