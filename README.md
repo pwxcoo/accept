@@ -11,3 +11,5 @@ Accept Game
 - leetcode740 / dp
 ### 2017-12-5
 - leetcode738 / 贪心
+### 2017-12-6
+- hihocoder1344 / SPFA(最短路) + dp + 状态压缩
