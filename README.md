@@ -13,3 +13,5 @@ Accept Game
 - leetcode738 / 贪心
 ### 2017-12-6
 - hihocoder1344 / SPFA(最短路) + dp + 状态压缩
+### 2017-12-7
+- pat top 1001 / kruskal最小生成树
