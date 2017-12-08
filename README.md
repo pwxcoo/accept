@@ -15,3 +15,5 @@ Accept Game
 - hihocoder1344 / SPFA(最短路) + dp + 状态压缩
 ### 2017-12-7
 - pat top 1001 / kruskal最小生成树
+### 2017-12-8
+- pat top 1002 / dp(01背包)
