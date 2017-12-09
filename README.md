@@ -17,3 +17,5 @@ Accept Game
 - pat top 1001 / kruskal最小生成树
 ### 2017-12-8
 - pat top 1002 / dp(01背包)
+### 2017-12-9
+- pat top 1003 / Dinic(最大网络流)
