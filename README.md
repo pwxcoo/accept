@@ -19,3 +19,5 @@ Accept Game
 - pat top 1002 / dp(01背包)
 ### 2017-12-9
 - pat top 1003 / Dinic(最大网络流)
+### 2017-12-10
+- leetcode5 / string(palindromic)
