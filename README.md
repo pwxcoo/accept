@@ -23,3 +23,5 @@ Accept Game
 - leetcode5 / string(palindromic)
 ### 2017-12-11
 - leetcode15 / array(two point)
+### 2017-12-12
+- pat advanced 1132 / string(除零)
