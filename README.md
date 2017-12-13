@@ -25,3 +25,6 @@ Accept Game
 - leetcode15 / array(two point)
 ### 2017-12-12
 - pat advanced 1132 / string(除零)
+### 2017-12-13
+- pat advanced 1133 / list
+- pat advanced 1134 / set
