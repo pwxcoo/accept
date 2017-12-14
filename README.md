@@ -28,3 +28,5 @@ Accept Game
 ### 2017-12-13
 - pat advanced 1133 / list
 - pat advanced 1134 / set
+### 2017-12-14
+- leetcode55 / greedy
