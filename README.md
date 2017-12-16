@@ -32,3 +32,5 @@ Accept Game
 - leetcode55 / greedy
 ### 2017-12-15
 - leetcode743 / SPFA(最短路)
+### 2017-12-16
+- leetcode739 / stack
