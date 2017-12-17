@@ -34,3 +34,5 @@ Accept Game
 - leetcode743 / SPFA(最短路)
 ### 2017-12-16
 - leetcode739 / stack
+### 2017-12-17
+- leetcode713 / two point
