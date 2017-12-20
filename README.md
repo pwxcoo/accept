@@ -40,3 +40,5 @@ Accept Game
 - leetcode750 / dp
 ### 2017-12-19
 - leetcode748 / dp
+### 2017-12-20
+- leetcode287 / binary search
