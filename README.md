@@ -48,3 +48,5 @@ Accept Game
 - leetcode714 / dp
 ### 2017-12-23
 - leetcode712 / dp
+### 2017-12-24
+- leetcode139 / dp
