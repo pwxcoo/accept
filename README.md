@@ -56,3 +56,5 @@ Accept Game
 - leetcode63 / dp
 ### 2017-12-27
 - leetcode698 / dfs
+### 2017-12-28
+- leetcode688 / dp
