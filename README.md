@@ -58,3 +58,5 @@ Accept Game
 - leetcode698 / dfs
 ### 2017-12-28
 - leetcode688 / dp
+### 2017-12-29
+- leetcode153 / binary search
