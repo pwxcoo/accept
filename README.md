@@ -68,3 +68,5 @@ Accept Game
 - leetcode494 / dp
 ### 2018-01-03
 - leetcode322 / dp
+### 2018-01-04
+- leetcode474 / dp
