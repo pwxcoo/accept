@@ -72,3 +72,5 @@ Accept Game
 - leetcode474 / dp
 ### 2018-01-05
 - leetcode413 / dp
+### 2018-01-08
+- leetcode754 / math
