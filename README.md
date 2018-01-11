@@ -76,3 +76,5 @@ Accept Game
 - leetcode754 / math
 ### 2018-01-09
 - leetcode752 / BFS
+### 2018-01-10
+- pat advanced 1136 / string
