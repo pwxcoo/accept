@@ -76,5 +76,9 @@ Accept Game
 - leetcode754 / math
 ### 2018-01-09
 - leetcode752 / BFS
-### 2018-01-10
+### 2018-01-11
 - pat advanced 1136 / string
+### 2018-01-12
+- pat advanced 1137 / 模拟
+### 2018-01-13
+- pat advanced 1138 / 二叉树的遍历
