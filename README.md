@@ -84,3 +84,5 @@ Accept Game
 - pat advanced 1138 / 二叉树的遍历
 ### 2018-01-14
 - pat advanced 1139 / stl
+### 2018-01-15
+- hihocoder 1354 / SPFA
