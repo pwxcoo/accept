@@ -86,3 +86,7 @@ Accept Game
 - pat advanced 1139 / stl
 ### 2018-01-15
 - hihocoder 1354 / SPFA
+### 2018-01-16
+- leetcode762 / bit manipulation
+- leetcode763 / greedy
+- leetcode764 / dp
