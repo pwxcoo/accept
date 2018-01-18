@@ -90,3 +90,6 @@ Accept Game
 - leetcode762 / bit manipulation
 - leetcode763 / greedy
 - leetcode764 / dp
+### 2018-01-18
+- 牛客练习赛10 A 
+- 牛客练习赛10 B / stack
