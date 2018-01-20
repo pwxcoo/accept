@@ -93,3 +93,8 @@ Accept Game
 ### 2018-01-18
 - 牛客练习赛10 A 
 - 牛客练习赛10 B / stack
+### 2018-01-19
+- Wannafly挑战赛8 A 
+- Wannafly挑战赛8 B
+### 2018-01-20
+- Wannafly挑战赛8 C / 状态压缩+dp
