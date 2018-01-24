@@ -1,61 +1,53 @@
 #include<cstdio>
+#include<vector>
+#include<unordered_map>
 #include<iostream>
-#include<string>
 #include<cstring>
+#include<string>
 
 using namespace std;
-//temp
 
-
-int visit[101];
-int cnt[10000001];
-
-int main()
-{
-	int n, m;
-	string text;
-	cin >> n >> m;
-	getchar();
-	getline(cin, text);
-
-	int time = 0, len = text.length(), offset = 0, row = 0;
-	int now = 0;
-	memset(visit, 0, sizeof(visit));
-	while (1) {
-		int next = now + m - offset;	//next表示下一行从那个字符开始
-
-		//如果下一行已经超出了text的长度，表示这一次结束了
-		if (next >= len) {
-			offset = len - now + 1;
-			now = 0;
-			cnt[time++] = row;
-			continue;
+typedef long long ll;
+// copy n times starting at (x, y)  
+void ncopy(const vector<int> &nums, int n, int m, ll &x, int &y) {
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < (int)nums.size(); ++j) {
+			if (y == m)
+				y = 0, ++x;
+			++y;
+			if (y + nums[j] > m)
+				y = 0, ++x;
+			y += nums[j];
 		}
-		
-
-		if (text[next] != ' ' && text[next - 1] != ' ') {
-			while (next - 1 >= 0 && text[next - 1] != ' ') {
-				next--;
-			}
-		}
-
-		row++;
-		offset = 0;
-		if (visit[next] == 1) {
-			break;
-		}
-		else {
-			visit[next] = 1;
-		}
-
-		now = next;
 	}
-
-	int res = 0;
-	res += (n / time) * row;
-	res += cnt[n % time];
-	printf("%d\n", res);
-
-    return 0;
 }
 
+int main() {
+	int n, m;
+	scanf("%d%d", &n, &m);
+	vector<int> words;
+	string str;
+	while (cin >> str)
+		words.push_back(str.size());
+
+	// record nth copy starting at (x, y) => dict[y] = make_pair(n, x)  
+	unordered_map<int, pair<int, ll>> dict;//c++ 11里面的  
+	ll x = 1;
+	int y = -1;
+	for (int i = 1; i <= n; ++i) {
+		ncopy(words, 1, m, x, y);
+		if (dict.find(y) != dict.end()) { // find the repetend  
+										  // fast forward to skip the repetend  
+			ll remain = (n - i) % (i - dict[y].first);
+			// add x by repetend's rows  
+			x += (n - i) / (i - dict[y].first)*(x - dict[y].second);
+			// copy the reset times  
+			ncopy(words, remain, m, x, y);
+			break;
+		}
+		// record ith copy starting at (x, y)  
+		dict.emplace(y, make_pair(i, x));
+	}
+	printf("%lld %d\n", x, y);
+	return 0;
+}
