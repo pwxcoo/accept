@@ -107,3 +107,7 @@ Accept Game
 - hihocoder1355 / 模拟（找规律）
 ### 2018-01-24
 - hihocoder1355 / （参考了一下别人的写法。这道题细节太多了）
+### 2018-01-25
+- leetcode766
+- leetcode767
+- leetcode769
