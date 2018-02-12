@@ -132,3 +132,11 @@ Accept Game
 - leetcode13 / 转化罗马字符
 - leetcode14 / 一组字符串的最长前缀字符串
 - leetcode15 / 排序，双指针降低复杂度
+### 2018-02-12
+- leetcode16 / 排序，双指针降低复杂度
+- leetcode17 / 队列
+- leetcode18 / 排序。转化子问题。
+- leetcode19 / 链表
+- leetcode20 / 栈
+- leetcode21 / 合并链表
+- leetcode22 / 回溯
