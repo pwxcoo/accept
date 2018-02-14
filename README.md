@@ -149,3 +149,9 @@ Accept Game
 - leetcode28 / 寻找字串
 - leetcode29 / 不用除号做除法
 - leetcode30 / map处理
+### 2018-02-14
+- leetcode31 / 全排列，寻找下一个增大的字典序排列
+- leetcode32 / dp
+- leetcode33 / 二分查找
+- leetcode34 / 二分查找
+- leetcode35 / 二分查找
