@@ -155,3 +155,11 @@ Accept Game
 - leetcode33 / 二分查找
 - leetcode34 / 二分查找
 - leetcode35 / 二分查找
+### 2018-02-15
+- leetcode36 / map 保存状态
+- leetcode37 / 回溯（数独）
+- leetcode38 / 模拟（字符串操作）
+- leetcode39 / dfs
+- leetcode40 / dfs
+- leetcode41 / 利用原数组保存结果使空间复杂度为O（1）
+- leetcode42*/ 用两个指针维护一个变量向中间收敛，感觉很技巧。
