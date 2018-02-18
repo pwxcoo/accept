@@ -183,3 +183,14 @@ Accept Game
 - leetcode58 / 水。边界情况的处理。
 - leetcode59 / zigzag填充矩阵
 - leetcode60 / 全排列，数学
+### 2018-02-18
+- leetcode61 / 反转链表
+- leetcode62 / dp
+- leetcode63 / dp
+- leetcode64 / dp
+- leetcode65 / 判断一个字符串是不是数字（题目给的信息太模糊。自己要考虑的细节太多，我跳过了，直接用一个正则代替就当无事发生）
+- leetcode66 / 数组操作
+- leetcode67 / 字符串操作
+- leetcode68 / 文本对齐
+- leetcode69 / 快速平方根。1.二分查找2.牛顿迭代法
+- leetcode70 / dp
