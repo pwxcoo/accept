@@ -148,7 +148,7 @@ Accept Game
 - leetcode27 / 移除数组中某个元素
 - leetcode28 / 寻找字串
 - leetcode29 / 不用除号做除法
-- leetcode30 / map处理
+- leetcode30 / map处理。（字符串模式匹配）
 ### 2018-02-14
 - leetcode31 / 全排列，寻找下一个增大的字典序排列
 - leetcode32 / dp
@@ -194,3 +194,17 @@ Accept Game
 - leetcode68 / 文本对齐
 - leetcode69 / 快速平方根。1.二分查找2.牛顿迭代法
 - leetcode70 / dp
+### 2018-02-19
+- leetcode71 / unix文件路径的简化
+- leetcode72 / dp（求两个字符串举例，相当于 NLP 求两个字符串距离计算两句话相近程度一样）
+- leetcode73 / 数组操作。利用已给数组降低空间复杂度
+- leetcode74 / 扫描矩阵
+- leetcode75 / 排序数组
+- leetcode76 / 寻找最小的窗口字串。哈希表，双指针记忆化搜索
+- leetcode77 / dfs
+- leetcode78 / dfs
+- leetcode79 / dfs
+- leetcode80 / 双指针
+- leetcode81 / 二分搜索
+- leetcode82 / 链表操作
+- leetcode83 / 链表操作
