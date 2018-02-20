@@ -208,3 +208,17 @@ Accept Game
 - leetcode81 / 二分搜索
 - leetcode82 / 链表操作
 - leetcode83 / 链表操作
+### 2018-02-20
+- leetcode84 / 用栈模拟操作
+- leetcode85 / 最大非零矩阵，dp
+- leetcode86 / 链表操作
+- leetcode87 / 递归，判断两个字符串是否可以相互乱序生成
+- leetcode88 / 归并排序
+- leetcode89 / 位运算
+- leetcode90 / dfs
+- leetcode91 / dp
+- leetcode92 / 反转部分链表
+- leetcode93 / 生成 ip 地址，dfs，回溯
+- leetcode94 / 中序遍历
+- leetcode95 / dfs,生成搜索树
+- leetcode96 / dp
