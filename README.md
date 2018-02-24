@@ -261,3 +261,15 @@ Accept Game
 - leetcode131 / dfs + 回溯
 ### 2018-02-23
 - leetcode132*/ dp
+### 2018-02-24
+- leetcode133 / 递归
+- leetcode134 / 贪心
+- leetcode135 / 贪心
+- leetcode136 / 异或
+- leetcode137*/ 位运算，（太秀了这题）
+- leetcode138 / 复制带有随机指针的链表
+- leetcode139 / dp
+- leetcode140 / dfs
+- leetcode141 / 双指针
+- leetcode142 / 双指针
+- leetcode143 / 寻找链表中点，反转链表
