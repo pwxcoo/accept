@@ -273,3 +273,11 @@ Accept Game
 - leetcode141 / 双指针
 - leetcode142 / 双指针
 - leetcode143 / 寻找链表中点，反转链表
+### 2018-02-25
+- leetcode144 / 前序遍历
+- leetcode145 / 后序遍历
+- leetcode146*/ LRU cache 类
+- leetcode147 / 插入排序
+- leetcode148 / 归并排序
+- leetcode149 / 求在一个点集中，在相同的直线上最多的点。注意corner cases和精度。
+- leetcode150 / 栈
