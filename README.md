@@ -283,3 +283,5 @@ Accept Game
 - leetcode150 / 栈
 ### 2018-03-03
 - hdu1728 / bfs
+### 2018-03-06
+- leetcode792
