@@ -285,3 +285,5 @@ Accept Game
 - hdu1728 / bfs
 ### 2018-03-06
 - leetcode792
+### 2018-03-08
+- leetcode795
