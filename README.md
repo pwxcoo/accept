@@ -287,3 +287,5 @@ Accept Game
 - leetcode792
 ### 2018-03-08
 - leetcode795
+### 2018-06-13
+- leetcode848 / 数据范围
