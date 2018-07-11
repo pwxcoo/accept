@@ -289,4 +289,7 @@ Accept Game
 - leetcode795
 ### 2018-06-13
 - leetcode848 / 数据范围
+### 2018-06-14
 - leetcode851 / dfs + 记忆化搜索
+### 2018-07-11
+- leetcode866 / 递归 + dfs
