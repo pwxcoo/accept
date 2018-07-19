@@ -295,3 +295,5 @@ Accept Game
 - leetcode855 / set
 ### 2018-07-11
 - leetcode866 / 递归 + dfs
+### 2018-07-19
+- leetcode870 / 二分 + 贪心
