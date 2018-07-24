@@ -299,3 +299,5 @@ Accept Game
 - leetcode870 / 二分 + 贪心
 ### 2018-07-23
 - leetcode207 / 求图是否存在环， dfs or bfs
+### 2018-07-24
+- kickstart 2018 - Round C - A / 拓扑排序 + 最短路
