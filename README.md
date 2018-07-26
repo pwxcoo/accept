@@ -301,3 +301,5 @@ Accept Game
 - leetcode207 / 求图是否存在环， dfs or bfs
 ### 2018-07-24
 - kickstart 2018 - Round C - A / 拓扑排序 + 最短路
+### 2018-07-25
+- kickstart 2018 - Round C - B / DFS + math(最长边大于其余所有边之和的若干线段才能组成闭合图形)
