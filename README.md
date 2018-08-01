@@ -303,3 +303,5 @@ Accept Game
 - kickstart 2018 - Round C - A / 拓扑排序 + 最短路
 ### 2018-07-25
 - kickstart 2018 - Round C - B / DFS + math(最长边大于其余所有边之和的若干线段才能组成闭合图形)
+### 2018-08-01
+- kickstart 2018 - Round C - C / 递推式 + 快速幂
