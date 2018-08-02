@@ -306,3 +306,5 @@ Accept Game
 ### 2018-08-01
 - kickstart 2018 - Round C - C / 递推式 + 快速幂
 - poj3070 / 矩阵快速幂
+### 2018-08-02
+- kickstart 2018 - Round D - A / 滑动窗口 + 搜索树（multiset)
