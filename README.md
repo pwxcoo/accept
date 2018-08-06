@@ -308,3 +308,9 @@ Accept Game
 - poj3070 / 矩阵快速幂
 ### 2018-08-02
 - kickstart 2018 - Round D - A / 滑动窗口 + 搜索树（multiset)
+### 2018-08-06
+- leetcode121 / dp 卖股票
+- leetcode122 / dp 不限制次数买股票
+- leetcode123 / dp 限制次数卖股票，2 次
+- leetcode188 / dp 限制次数买股票，k 次 + k 很大时退化成 leetcode122
+- leetcode714 / dp 每次交易有 fee
