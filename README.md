@@ -162,7 +162,7 @@ Accept Game
 - leetcode39 / dfs
 - leetcode40 / dfs
 - leetcode41 / 利用原数组保存结果使空间复杂度为O（1）
-- leetcode42*/ 用两个指针维护一个变量向中间收敛，感觉很技巧。
+- *leetcode42 / 用两个指针维护一个变量向中间收敛，感觉很技巧。
 ### 2018-02-16
 - leetcode43 / 字符串乘法
 - leetcode44 / 通配符匹配。DP。
@@ -260,13 +260,13 @@ Accept Game
 - leetcode130 / dfs
 - leetcode131 / dfs + 回溯
 ### 2018-02-23
-- leetcode132*/ dp
+- *leetcode132 / dp
 ### 2018-02-24
 - leetcode133 / 递归
 - leetcode134 / 贪心
 - leetcode135 / 贪心
 - leetcode136 / 异或
-- leetcode137*/ 位运算，（太秀了这题）
+- *leetcode137 / 位运算，（太秀了这题）
 - leetcode138 / 复制带有随机指针的链表
 - leetcode139 / dp
 - leetcode140 / dfs
@@ -276,7 +276,7 @@ Accept Game
 ### 2018-02-25
 - leetcode144 / 前序遍历
 - leetcode145 / 后序遍历
-- leetcode146*/ LRU cache 类
+- *leetcode146 / LRU cache 类
 - leetcode147 / 插入排序
 - leetcode148 / 归并排序
 - leetcode149 / 求在一个点集中，在相同的直线上最多的点。注意corner cases和精度。
@@ -314,3 +314,5 @@ Accept Game
 - leetcode123 / dp 限制次数卖股票，2 次
 - leetcode188 / dp 限制次数买股票，k 次 + k 很大时退化成 leetcode122
 - leetcode714 / dp 每次交易有 fee
+### 2018-08-07
+- *kickstart 2018 - Round D - B / 计算几何（第一次做这种，感觉很僵硬。）
