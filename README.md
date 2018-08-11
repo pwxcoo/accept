@@ -316,3 +316,5 @@ Accept Game
 - leetcode714 / dp 每次交易有 fee
 ### 2018-08-07
 - *kickstart 2018 - Round D - B / 计算几何（第一次做这种，感觉很僵硬。）
+### 2018-08-11
+- poj3264 / 线段树
