@@ -321,3 +321,7 @@ Accept Game
 ### 2018-08-12
 - hdu1166 / 传统线段树（单点更新，区间查询）
 - hdu1166 / zkw线段树
+### 2018-08-17
+- hdu1003 / 最长连续字串， dp
+- hdu1257 / LIS（Longest Increase Sequence）
+- hdu1392 / 凸包
