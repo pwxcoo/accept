@@ -325,3 +325,6 @@ Accept Game
 - hdu1003 / 最长连续字串， dp
 - hdu1257 / LIS（Longest Increase Sequence）
 - hdu1392 / 凸包
+### 2018-08-25
+- leetcode889 / 树的遍历
+- leetcode886 / 二分图
