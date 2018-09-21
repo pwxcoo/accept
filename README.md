@@ -338,3 +338,8 @@ Accept Game
 ### 2018-09-05
 - hdu2602 / 01背包
 - hdu2639 / 01背包变形（求第 K 优解）
+### 2018-09-21
+- leetcode904  / slide window
+- leetcode905  / 水
+- leetcode906  / 回文处理
+- *leetcode907 /  单调栈 + dp
