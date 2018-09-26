@@ -342,4 +342,7 @@ Accept Game
 - leetcode904  / slide window
 - leetcode905  / 水
 - leetcode906  / 回文处理
-- *leetcode907 /  单调栈 + dp
+- *leetcode907 / 单调栈 + dp
+### 2018-09-26
+- leetcode647 / manacher 处理回文
+- leetcode621 / greedy
