@@ -1,3 +1,0 @@
-# Introduction
-
-Initialize this book.
