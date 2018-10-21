@@ -20,6 +20,9 @@ result  sum([(i + 1) // 2 for i in dp])
 
 This is the **Manacher Algorithm**, which reduces the time complexity to $$O(n)$$, and increase the space complexity to $$O(n)$$, which is take time for space.
 
+- Time Complexity: $$O(n)$$
+- Space Complexity: $$O(n)$$
+
 ## Solution
 
 ```cpp

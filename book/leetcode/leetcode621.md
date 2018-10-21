@@ -2,8 +2,14 @@
 
 Image each cycle as a bucket, put a task in each bucket in turn, simulate it then get a formula:
 
+- `mx` is the most task
+- `n` is the number of tasks
+- `same` is the number of task same with the most task
+
 $$(mx - 1) * (n + 1) + same$$
 
+- Time Complexity: $$O(n)$$
+- Space Complexity: $$O(1)$$
 
 ## Solution
 
