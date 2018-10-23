@@ -346,3 +346,5 @@ Accept Game
 ### 2018-09-26
 - leetcode647 / manacher 处理回文
 - leetcode621 / greedy
+### 2018-10-23
+- lintcode617 / 求长度大于等于 k 的子数组最大平均数，二分

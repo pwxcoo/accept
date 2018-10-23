@@ -12,4 +12,5 @@
     * [leetcode152. Maximum Product Subarray](./book/leetcode/leetcode152.md)
     * [leetcode621. Task Scheduler](./book/leetcode/leetcode621.md)
     * [leetcode647. Palindromic Substrings](./book/leetcode/leetcode647.md)
-
+* [Lintcode](./book/lintcode/README.md)
+    * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)
