@@ -3,11 +3,11 @@
 Find maximum average subarray which length should be greater or equal to given length `k`.
 
 - the minimum average is the minimum of array, the maximum average is the maximum of array.
-- binary search `mid` between minimum and maximum, if $$sum(subarray) - mid * len(subarray) > 0$$, then $$minimum = mid$$
+- binary search `mid` between minimum and maximum, if `sum(subarray) - mid * len(subarray) > 0`, then `minimum = mid`
 - how to judge it in binary search?
-    - use pre-sum array `sum[]` denotes $$sum(nums[0] - mid, ..., nums[i] - mid)$$
+    - use pre-sum array `sum[]` denotes `sum(nums[0] - mid, ..., nums[i] - mid)`
     - `mn` denotes the minimum sum from `0` to `i - k`
-    - if `i >= k && sum[i] > mn`, prove that there is $$sum(nums[j] - mid, ..., num[i] - mid) > 0$$, the real average will greater than `mid`.
+    - if `i >= k && sum[i] > mn`, prove that there is `sum(nums[j] - mid, ..., num[i] - mid) > 0`, the real average will greater than `mid`.
 
 
 ## Solution
@@ -29,14 +29,11 @@ public:
         {
             sum[i] =  sum[i - 1] + (double)nums[i - 1] - res;
             if (i >= k && sum[i] > mn)
-            {
                 return true;
-            }
             if (i >= k)
                 mn = min(mn, sum[i + 1 - k]);
         }
-        return false;
-        
+        return false;    
     }
     
     double maxAverage(vector<int> &nums, int k) {
