@@ -348,3 +348,7 @@ Accept Game
 - leetcode621 / greedy
 ### 2018-10-23
 - lintcode617 / 求长度大于等于 k 的子数组最大平均数，二分
+### 2018-10-28
+- leetcode929 / 化简邮箱字符串
+- leetcode930 / 寻找符合条件的子数组，我用了 pre sum，因为本题特性，pre sum 是非降序的，所以可以用类似窗口来维护，空间可以降到常数
+- leetcode931 / 简单的动态规划
