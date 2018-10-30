@@ -352,3 +352,7 @@ Accept Game
 - leetcode929 / 化简邮箱字符串
 - leetcode930 / 寻找符合条件的子数组，我用了 pre sum，因为本题特性，pre sum 是非降序的，所以可以用类似窗口来维护，空间可以降到常数
 - leetcode931 / 简单的动态规划
+### 2018-10-30
+- codeforces Round 53 A / 找到一个没有元素超过 n/2 个的字串（找到两个字母不一样就好了）
+- codeforces Round 53 B / 线性查找
+- codeforces Round 53 C / 路径的修正，因为修改是任意的，所以记录需要修正的总的数量来观察是否能修正
