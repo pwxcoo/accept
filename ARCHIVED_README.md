@@ -356,3 +356,5 @@ Accept Game
 - codeforces Round 53 A / 找到一个没有元素超过 n/2 个的字串（找到两个字母不一样就好了）
 - codeforces Round 53 B / 线性查找
 - codeforces Round 53 C / 路径的修正，因为修改是任意的，所以记录需要修正的总的数量来观察是否能修正
+### 2018-10-31
+- codeforces Round 53 C / 购物问题，取余简化复杂度
