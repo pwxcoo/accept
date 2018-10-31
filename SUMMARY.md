@@ -13,4 +13,6 @@
     * [leetcode621. Task Scheduler](./book/leetcode/leetcode621.md)
     * [leetcode647. Palindromic Substrings](./book/leetcode/leetcode647.md)
 * [Lintcode](./book/lintcode/README.md)
-    * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)
+    * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
+* [Codeforces](./book/codeforces/README.md)
+    * [Educational Codeforces Round 53 (Rated for Div. 2)](./book/codeforces/educational53.md)

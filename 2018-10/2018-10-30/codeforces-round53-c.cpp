@@ -28,7 +28,7 @@ int sx[200005], sy[200005];
 
 int main(int argc, const char *argv[])
 {
-    // freopen("input.in", "r", stdin);
+    freopen("input.in", "r", stdin);
 
     scanf("%d%s%d%d", &n, s + 1, &x, &y);
     if (abs(x) + abs(y) > n || (n + x + y) & 1) {
