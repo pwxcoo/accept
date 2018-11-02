@@ -16,3 +16,5 @@
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [Codeforces](./book/codeforces/README.md)
     * [Educational Codeforces Round 53 (Rated for Div. 2)](./book/codeforces/educational53.md)
+* [hihocoder](./book/hihocoder/README.md)
+    * [hihocoder#1451 : Ctrl-C Ctrl-V](./book/hihocoder/hihocoder1451.md)

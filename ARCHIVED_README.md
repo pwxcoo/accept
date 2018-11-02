@@ -358,3 +358,5 @@ Accept Game
 - codeforces Round 53 C / 路径的修正，因为修改是任意的，所以记录需要修正的总的数量来观察是否能修正
 ### 2018-10-31
 - codeforces Round 53 C / 购物问题，取余简化复杂度
+### 2018-11-02
+- hihocoder1451 / 看起来是 dp，其实是找规律 + 快速幂
