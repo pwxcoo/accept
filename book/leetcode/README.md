@@ -477,7 +477,7 @@ LRU Cache
 
 ### leetcode312. Burst Balloons
 
-一组气球，气球爆炸的话，就会得到 arr[i] * arr[i - 1] * arr[i + 1] 的值，求最大的值。
+一组气球，气球爆炸的话，就会得到 $$arr[i] * arr[i - 1] * arr[i + 1]$$ 的值，求最大的值。
 
 **动态规划，$$dp[i][j] = max(dp[i][u - 1] + dp[u + 1][j] + num[u] * num[u - 1] * num[u + 1]$$**
 
@@ -521,13 +521,13 @@ LRU Cache
 
 判断一个数组元素能否分成两半。
 
-**维护一个 dp[half] 的数组**
+**维护一个 dp[half] 的数组,背包问题变形**
 
 ### leetcode437. Path Sum III
 
 判断二叉树中是否有一段之和等于给定值。
 
-**DFS,然后维护一个哈希表，用 pre sum 数组来存储数据**
+**DFS，然后维护一个哈希表，用 pre sum 数组来存储数据**
 
 ### leetcode438. Find All Anagrams in a String
 
