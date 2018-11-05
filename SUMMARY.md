@@ -17,4 +17,5 @@
 * [Codeforces](./book/codeforces/README.md)
     * [Educational Codeforces Round 53 (Rated for Div. 2)](./book/codeforces/educational53.md)
 * [hihocoder](./book/hihocoder/README.md)
-    * [hihocoder#1451 : Ctrl-C Ctrl-V](./book/hihocoder/hihocoder1451.md)
+    * [hihocoder1451 : Ctrl-C Ctrl-V](./book/hihocoder/hihocoder1451.md)
+    * [hihocoder1452 : Longest Subsequence](./book/hihocoder/hihocoder1452.md)
