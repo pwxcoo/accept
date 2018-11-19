@@ -372,3 +372,5 @@ Accept Game
 - leetcode213 / dp
 ### 2018-11-18
 - leetcode264 / dp
+### 2018-11-19
+- leetcode941 / 维护一个变化趋势（up/down）的变量
