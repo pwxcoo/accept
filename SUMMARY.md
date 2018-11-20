@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Summary](./book/summary/README.md)
 * [Leetcode](./book/leetcode/README.md)
     * [leetcode1. Two Sum](./book/leetcode/leetcode1.md)
     * [leetcode3. Longest Substring Without Repeating Characters](./book/leetcode/leetcode3.md)
@@ -19,3 +20,4 @@
 * [hihocoder](./book/hihocoder/README.md)
     * [hihocoder1451 : Ctrl-C Ctrl-V](./book/hihocoder/hihocoder1451.md)
     * [hihocoder1452 : Longest Subsequence](./book/hihocoder/hihocoder1452.md)
+    * [hihocoder1459 : Same Letters In A Row](./book/hihocoder/hihocoder1459.md)

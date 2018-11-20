@@ -374,3 +374,8 @@ Accept Game
 - leetcode264 / dp
 ### 2018-11-19
 - leetcode941 / 维护一个变化趋势（up/down）的变量
+### 2018-11-20
+- leetcode942 / 一个 `ID` 表示一个峰值
+- leetcode943 / TSP
+- leetcode944 / 水
+- hihocoder1459 / 滑动窗口
