@@ -379,3 +379,5 @@ Accept Game
 - leetcode943 / TSP
 - leetcode944 / 水
 - hihocoder1459 / 滑动窗口
+### 2018-11-21
+- leetcode932 / 分治 + 数学
