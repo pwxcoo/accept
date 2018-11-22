@@ -383,3 +383,5 @@ Accept Game
 - leetcode932 / 分治 + 数学
 - leetcode934 / 连接两个岛，BFS 来 expand 岛
 - leetcode937 / 排序函数
+### 2018-11-22
+- leetcode939 / 最小的矩阵，构造左下角和右上角那个点的组合是否可行
