@@ -21,3 +21,4 @@
     * [hihocoder1451 : Ctrl-C Ctrl-V](./book/hihocoder/hihocoder1451.md)
     * [hihocoder1452 : Longest Subsequence](./book/hihocoder/hihocoder1452.md)
     * [hihocoder1459 : Same Letters In A Row](./book/hihocoder/hihocoder1459.md)
+    * [hihocoder1460 : Smallest Substring](./book/hihocoder/hihocoder1460.md)

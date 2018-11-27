@@ -392,3 +392,4 @@ Accept Game
 - leetcode946 / 入栈，出栈序列，判断是否合法
 - leetcode947 / 并查集
 - leetcode948 / 两个指针 + 贪心
+- hihocoder1460 / RMQ
