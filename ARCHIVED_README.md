@@ -387,3 +387,8 @@ Accept Game
 - leetcode939 / 最小的矩阵，构造左下角和右上角那个点的组合是否可行
 - leetcode936 / 用 stamp 构造 sequence，可以覆盖，逆向构造
 - leetcode940 / 一个字符串有多少个 distinct 子序列，用一个 endwith[26] 来统计
+### 2018-11-27
+- leetcode945 / 排序模拟
+- leetcode946 / 入栈，出栈序列，判断是否合法
+- leetcode947 / 并查集
+- leetcode948 / 两个指针 + 贪心
