@@ -395,3 +395,5 @@ Accept Game
 - hihocoder1460 / RMQ
 ### 2018-11-29
 - leetcode174 / dp
+### 2018-11-30
+- leetcode211 / Trie
