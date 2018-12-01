@@ -398,3 +398,6 @@ Accept Game
 ### 2018-11-30
 - leetcode211 / Trie
 - leetcode213 / dp, 抢劫问题，房子是首尾相连的，所以分成首房子和尾房子选中两种情况。
+### 2018-12-01
+- leetcode214   / KMP，在字符串前添加最少字符形成回文
+- hihocoder1015 / KMP
