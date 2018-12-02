@@ -403,3 +403,5 @@ Accept Game
 - hihocoder1015 / KMP
 ### 2018-12-02
 - hihocoder1473 / 扩展欧几里得（数学）
+- leetcode949   / 四个数字组成最大的合法时间
+- leetcode950   / 模拟
