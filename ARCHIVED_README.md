@@ -406,3 +406,4 @@ Accept Game
 - leetcode949   / 四个数字组成最大的合法时间
 - leetcode950   / 模拟
 - leetcode951   / 递归
+- leetcode952   / 并查集
