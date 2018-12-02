@@ -401,3 +401,5 @@ Accept Game
 ### 2018-12-01
 - leetcode214   / KMP，在字符串前添加最少字符形成回文
 - hihocoder1015 / KMP
+### 2018-12-02
+- hihocoder1473 / 扩展欧几里得（数学）
