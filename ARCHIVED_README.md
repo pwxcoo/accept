@@ -407,3 +407,4 @@ Accept Game
 - leetcode950   / 模拟
 - leetcode951   / 递归
 - leetcode952   / 并查集
+- hdu1711       / KMP (卡了 `scanf`...)
