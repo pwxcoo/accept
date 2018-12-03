@@ -408,3 +408,5 @@ Accept Game
 - leetcode951   / 递归
 - leetcode952   / 并查集
 - hdu1711       / KMP (卡了 `scanf`...)
+### 2018-12-03
+- hdu1686 / KMP
