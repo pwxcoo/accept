@@ -412,3 +412,5 @@ Accept Game
 - hdu1686 / KMP
 ### 2018-12-05
 - leetcode216 / dfs
+### 2018-12-07
+- leetcode218 / skyline 问题，把左右两条边界处理一下，然后排序

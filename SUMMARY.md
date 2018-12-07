@@ -12,6 +12,7 @@
     * [leetcode56. Merge Intervals](./book/leetcode/leetcode56.md)
     * [leetcode114. Flatten Binary Tree to Linked List](./book/leetcode/leetcode114.md)
     * [leetcode152. Maximum Product Subarray](./book/leetcode/leetcode152.md)
+    * [leetcode218. The Skyline Problem](./book/leetcode/leetcode218.md)
     * [leetcode621. Task Scheduler](./book/leetcode/leetcode621.md)
     * [leetcode647. Palindromic Substrings](./book/leetcode/leetcode647.md)
 * [Lintcode](./book/lintcode/README.md)
