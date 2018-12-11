@@ -25,3 +25,4 @@
     * [hihocoder1459 : Same Letters In A Row](./book/hihocoder/hihocoder1459.md)
     * [hihocoder1460 : Smallest Substring](./book/hihocoder/hihocoder1460.md)
     * [hihocoder1473 : 小Ho的强迫症](./book/hihocoder/hihocoder1473.md)
+    * [hihocoder1474 : 拆字游戏](./book/hihocoder/hihocoder1474.md)
