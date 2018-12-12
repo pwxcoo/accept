@@ -420,3 +420,8 @@ Accept Game
 - leetcode223 / 计算两个矩形的面积（取出 overlap 部分）
 ### 2018-12-11
 - hihocoder1474 / bfs
+### 2018-12-12
+- leetcode953 / 水，建立映射表就好了
+- leetcode954 / 哈希表
+- leetcode955 / 贪心
+- leetcode956 / dp
