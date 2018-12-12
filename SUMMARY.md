@@ -15,6 +15,8 @@
     * [leetcode218. The Skyline Problem](./book/leetcode/leetcode218.md)
     * [leetcode621. Task Scheduler](./book/leetcode/leetcode621.md)
     * [leetcode647. Palindromic Substrings](./book/leetcode/leetcode647.md)
+    * [leetcode932. Beautiful Array](./book/leetcode/leetcode932.md)
+    * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
 * [Lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [Codeforces](./book/codeforces/README.md)
