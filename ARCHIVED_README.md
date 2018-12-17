@@ -429,3 +429,4 @@ Accept Game
 - hihocoder1475 / 前缀和 + dp
 - leetcode957 / 有周期的（看不出周期也可以直接枚举，因为总共也只有 2^6 种可能。
 - leetcode958 / 判断是否完全二叉树，层次遍历，遇到 NULL，end = true，如果在遇到 NULL，就不是完全二叉树了
+- *leetcode959 / dfs，很神奇的思路，把一个 slash 变成 3x3 网格的形式，然后用 dfs
