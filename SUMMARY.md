@@ -28,3 +28,4 @@
     * [hihocoder1460 : Smallest Substring](./book/hihocoder/hihocoder1460.md)
     * [hihocoder1473 : 小Ho的强迫症](./book/hihocoder/hihocoder1473.md)
     * [hihocoder1474 : 拆字游戏](./book/hihocoder/hihocoder1474.md)
+    * [hihocoder1475 : 数组分拆](./book/hihocoder/hihocoder1475.md)

@@ -425,3 +425,5 @@ Accept Game
 - leetcode954 / 哈希表
 - leetcode955 / 贪心
 - leetcode956 / dp
+### 2018-12-17
+- hihocoder1475 / 前缀和 + dp
