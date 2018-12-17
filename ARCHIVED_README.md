@@ -427,3 +427,4 @@ Accept Game
 - leetcode956 / dp
 ### 2018-12-17
 - hihocoder1475 / 前缀和 + dp
+- leetcode957 / 有周期的（看不出周期也可以直接枚举，因为总共也只有 2^6 种可能。
