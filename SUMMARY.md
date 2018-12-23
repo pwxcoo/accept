@@ -19,8 +19,9 @@
     * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
 * [Lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
-* [Codeforces](./book/codeforces/README.md)
+* [codeforces](./book/codeforces/README.md)
     * [Educational Codeforces Round 53 (Rated for Div. 2)](./book/codeforces/educational53.md)
+    * [Codeforces Round #527 (Div. 3)](./book/codeforces/round527.md)
 * [hihocoder](./book/hihocoder/README.md)
     * [hihocoder1451 : Ctrl-C Ctrl-V](./book/hihocoder/hihocoder1451.md)
     * [hihocoder1452 : Longest Subsequence](./book/hihocoder/hihocoder1452.md)

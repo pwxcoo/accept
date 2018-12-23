@@ -11,3 +11,14 @@ Records problems in codeforces.
 - // 1073E. Segment Sum
 - // 1073F. Choosing Two Paths
 - // 1073G. Yet Another LCP Problem
+
+
+## [Codeforces Round #527 (Div. 3)](./round527.md)
+
+- 1092A. Uniform String
+- 1092B. Teams Forming
+- 1092C. Prefixes and Suffixes
+- // 1092D1. Great Vova Wall (Version 1)
+- // 1092D2. Great Vova Wall (Version 2)
+- // 1092E. Minimal Diameter Forest
+- // 1092F. Tree with Maximum Cost
