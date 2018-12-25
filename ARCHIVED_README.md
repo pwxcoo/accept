@@ -431,3 +431,9 @@ Accept Game
 - leetcode958 / 判断是否完全二叉树，层次遍历，遇到 NULL，end = true，如果在遇到 NULL，就不是完全二叉树了
 - *leetcode959 / dfs，很神奇的思路，把一个 slash 变成 3x3 网格的形式，然后用 dfs
 - *leetcode960 / 多个字符串的最长递增子序列
+### 2018-12-23
+- codeforces-round527-A
+- codeforces-round527-B
+- codeforces-round527-C / 找到最长的两个为前缀，后缀的两种情况
+### 2018-12-25
+- leetcode961 / 哈希，水
