@@ -17,6 +17,7 @@
     * [leetcode647. Palindromic Substrings](./book/leetcode/leetcode647.md)
     * [leetcode932. Beautiful Array](./book/leetcode/leetcode932.md)
     * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
+    * [leetcode964. Least Operators to Express Number](./book/leetcode/leetcode964.md)
 * [Lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
