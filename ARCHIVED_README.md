@@ -444,3 +444,5 @@ Accept Game
 ### 2019-01-01
 - leetcode965 / recursion
 - leetcode967 / bfs
+### 2019-01-06
+- leetcode872 / dfs
