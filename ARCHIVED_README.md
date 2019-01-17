@@ -446,3 +446,5 @@ Accept Game
 - leetcode967 / bfs
 ### 2019-01-06
 - leetcode872 / dfs
+### 2019-01-07
+- codeforces-round530-A
