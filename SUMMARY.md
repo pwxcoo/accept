@@ -16,6 +16,7 @@
     * [leetcode218. The Skyline Problem](./book/leetcode/leetcode218.md)
     * [leetcode621. Task Scheduler](./book/leetcode/leetcode621.md)
     * [leetcode647. Palindromic Substrings](./book/leetcode/leetcode647.md)
+    * [leetcode891. Sum of Subsequence Widths](./book/leetcode/leetcode891.md)
     * [leetcode932. Beautiful Array](./book/leetcode/leetcode932.md)
     * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
     * [leetcode964. Least Operators to Express Number](./book/leetcode/leetcode964.md)
