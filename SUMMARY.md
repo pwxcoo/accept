@@ -4,6 +4,7 @@
 * [Summary](./book/summary/README.md)
     * [KMP](./book/summary/kmp.md)
     * [Josephus Circle](./book/summary/josephus_circle.md)
+    * [Newton Method](./book/summary/newton_method.md)
 * [Leetcode](./book/leetcode/README.md)
     * [leetcode1. Two Sum](./book/leetcode/leetcode1.md)
     * [leetcode3. Longest Substring Without Repeating Characters](./book/leetcode/leetcode3.md)
