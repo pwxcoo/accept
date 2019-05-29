@@ -462,3 +462,5 @@ Accept Game
 - leetcode1039 / dp
 ### 2019-05-08
 - hdu1878 / 欧拉回路
+### 2019-05-29
+- leetcode622 / circle queue
