@@ -471,3 +471,4 @@ Accept Game
 ### 2019-06-24
 - pat advanced 1140 / 模拟
 - pat advanced 1141 / map
+- pat advanced 1142 / 判断是否 maximal clique
