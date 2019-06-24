@@ -468,3 +468,5 @@ Accept Game
 - leetcode1089 / queue
 ### 2019-06-21
 - hdu5067 / 状态dp + TSP
+### 2019-06-24
+- pat advanced 1140 / 模拟
