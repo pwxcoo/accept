@@ -475,3 +475,4 @@ Accept Game
 - pat advanced 1143 / LCA + BST
 ### 2019-06-25
 - pat advanced 1144 / set
+- pat advanced 1145 / 哈希，平方探测法（Quadratic Probing）
