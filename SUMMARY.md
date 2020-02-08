@@ -8,7 +8,7 @@
     * [Eulerian Path](./book/summary/eulerian_path.md)
     * [Binary Exponentiation](./book/summary/binary_exponentiation.md)
     * [Fibonacci General Formula](./book\summary\fibonacci_general_formula.md)
-* [Leetcode](./book/leetcode/README.md)
+* [leetcode](./book/leetcode/README.md)
     * [leetcode1. Two Sum](./book/leetcode/leetcode1.md)
     * [leetcode3. Longest Substring Without Repeating Characters](./book/leetcode/leetcode3.md)
     * [leetcode10. Regular Expression Matching](./book/leetcode/leetcode10.md)
@@ -24,7 +24,7 @@
     * [leetcode932. Beautiful Array](./book/leetcode/leetcode932.md)
     * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
     * [leetcode964. Least Operators to Express Number](./book/leetcode/leetcode964.md)
-* [Lintcode](./book/lintcode/README.md)
+* [lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
     * [Educational Codeforces Round 53 (Rated for Div. 2)](./book/codeforces/educational53.md)
@@ -39,3 +39,4 @@
     * [hihocoder1475 : 数组分拆](./book/hihocoder/hihocoder1475.md)
 * [intelligence](./book/intelligence/README.md)
     * [开灯关灯问题](./book\intelligence\light_problem.md)
+* [剑指offer](./book/offer/README.md)
