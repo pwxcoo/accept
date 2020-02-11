@@ -13,7 +13,7 @@ public:
         if (array.size() == 0 || array[0].size() == 0) {
             return false;
         }
-        
+
         int n = array.size(), m = array[0].size();
         int i = n - 1, j = 0;
         while (i >= 0 && j < m) {
@@ -21,7 +21,7 @@ public:
             else if (array[i][j] > target) i--;
             else if (array[i][j] < target) j++;
         }
-        
+
         return false;
     }
 };
@@ -41,9 +41,9 @@ public:
 	void replaceSpace(char *str,int length) {
         int spaceCount = 0;
         for (int i = 0; i < length; i++) {
-            if (str[i] == ' ') spaceCount++; 
+            if (str[i] == ' ') spaceCount++;
         }
-        
+
         int newLength = length + 2 * spaceCount;
         for (int i = length - 1, newi = newLength - 1; i >= 0; i--) {
             if (str[i] == ' ') {
@@ -78,13 +78,13 @@ class Solution {
 public:
     vector<int> printListFromTailToHead(ListNode* head) {
         vector<int> res;
-        
+
         ListNode* cur = head;
         while (cur != NULL) {
             res.push_back(cur->val);
             cur = cur->next;
         }
-        
+
         // reverse(res.begin(), res.end());
         int n = res.size();
         for (int i = 0; i < n / 2; i++) {
@@ -92,10 +92,51 @@ public:
             res[i] = res[n - 1 - i];
             res[n - 1 - i] = tmp;
         }
-        
+
         return res;
     }
 };
 ```
 
 时间复杂度：$$O(n)$$
+
+## [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+根据前序遍历和中序遍历重建二叉树。
+
+```cpp
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+private:
+    TreeNode* buildBinaryTree(vector<int>& pre,vector<int>& vin, int ps, int vs, int size) {
+        if (size == 0) return NULL;
+
+        TreeNode* root = new TreeNode(pre[ps]);
+        int leftSize = 0;
+        while (vin[vs + leftSize] != pre[ps]) {
+            leftSize++;
+        }
+
+        root->left = buildBinaryTree(pre, vin, ps + 1, vs, leftSize);
+        root->right = buildBinaryTree(pre, vin, ps + 1 + leftSize, vs + leftSize + 1,  size - leftSize - 1);
+
+        return root;
+    }
+public:
+    TreeNode* reConstructBinaryTree(vector<int> pre,vector<int> vin) {
+        if (pre.size() == 0 || vin.size() == 0) return NULL;
+
+        return buildBinaryTree(pre, vin, 0, 0, pre.size());
+    }
+};
+```
+
+时间复杂度：$$O(nlogn)$$，最坏应该是 $$O(n^2)$$。时间复杂度是 $$T(n)=O(n)+2T(n/2)$$，是一个 $$O(n)$$ 的复杂度，加上两个子问题的复杂度，算出来平均应该是 $$O(nlogn)$$。
