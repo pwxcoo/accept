@@ -140,3 +140,68 @@ public:
 ```
 
 时间复杂度：$$O(nlogn)$$，最坏应该是 $$O(n^2)$$。时间复杂度是 $$T(n)=O(n)+2T(n/2)$$，是一个 $$O(n)$$ 的复杂度，加上两个子问题的复杂度，算出来平均应该是 $$O(nlogn)$$。
+
+## [用两个栈实现队列](https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=13&tqId=11158&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+1. `push()` 放到 stack1 里
+2. `pop()` 的时候，看 stack2 是不是空的，如果是空的得把 stack1 里元素倒到 stack2 里，然后直接 pop stack2 中的元素就好了。
+
+```cpp
+class Solution
+{
+public:
+    void push(int node) {
+        stack1.push(node);
+    }
+
+    int pop() {
+        if (stack2.empty()) {
+            while (!stack1.empty()) {
+                int t = stack1.top(); stack1.pop();
+                stack2.push(t);
+            }
+        }
+        
+        int res = stack2.top(); stack2.pop();
+        return res;
+    }
+
+private:
+    stack<int> stack1;
+    stack<int> stack2;
+};
+```
+
+时间复杂度：$$O(1)$$
+
+## [旋转数组的最小数字](https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba)
+
+我是按照**严格递增**的话来写的。取中间元素和最后一个元素比较，然后每次都排除掉非“分割线”所在的那个区间（正常的递增区间）。（**PS：之所以用最后一个元素，是因为如果只有两个元素的话，mid 每次都是 L 元素，而不是 R 元素，会有点问题。**）
+
+如果是**非递减**的话，感觉只能 $$O(n)$$ 的写法了。因为没办法区分 `[1, 0, 1, 1, 1]` 和 `[1, 1, 1, 0, 1]`。
+
+```cpp
+class Solution {
+public:
+    int minNumberInRotateArray(vector<int> rotateArray) {
+        if (rotateArray.size() == 0) {
+            return 0;
+        }
+        
+        int L = 0, R = rotateArray.size() - 1;
+        
+        while (L < R) {
+            int mid = L + (R - L) / 2;
+            if (rotateArray[mid] > rotateArray[R]) {
+                L = mid + 1;
+            } else {
+                R = mid;
+            }
+        }
+        
+        return rotateArray[L];
+    }
+};
+```
+
+时间复杂度：$$O(logn)$$
