@@ -205,3 +205,277 @@ public:
 ```
 
 时间复杂度：$$O(logn)$$
+
+## [斐波那契数列](https://www.nowcoder.com/practice/c6c7742f5ba7442aada113136ddea0c3?tpId=13&tqId=11160&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+用一个数组记录一下结果。避免重复的计算。
+
+```cpp
+class Solution {
+private:
+    int fib[50];
+public:
+    int Fibonacci(int n) {
+       if (n <= 1) {
+           return n;
+       }
+        
+        return fib[n] ? fib[n] : fib[n] = Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [跳台阶](https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=13&tqId=11161&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+和上一题一样。
+
+```cpp
+class Solution {
+private:
+    int jump[50];
+public:
+    int jumpFloor(int number) {
+        if (number <= 1) {
+            return 1;
+        }
+        
+        return jump[number] ? jump[number]: jump[number] = jumpFloor(number - 1) + jumpFloor(number - 2);
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [变态跳台阶](https://www.nowcoder.com/practice/22243d016f6b47f2a6928b4313c85387?tpId=13&tqId=11162&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+得到递推公式：
+
+$$
+F(n) = F(n - 1) + F(n - 2) + \cdots + F(1) + F(0)
+$$
+
+处理一下可得：
+
+$$
+F(n) = 2^{n - 1}
+$$
+
+然后快速幂一下。
+
+```cpp
+class Solution {
+public:
+    int jumpFloorII(int number) {
+        return quickPow(number - 1);
+    };
+    
+    int quickPow(int n) {
+        int base = 2;
+        int r = 1;
+        while (n) {
+            if (n & 1 == 1) {
+                r *= base;
+            }
+            
+            base *= base;
+            n >>= 1;
+        }
+        
+        return r;
+    }
+};
+```
+
+时间复杂度：$$O(logn)$$
+
+
+## [矩形覆盖](https://www.nowcoder.com/practice/72a5a919508a4251859fb2cfb987a0e6?tpId=13&tqId=11163&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+考虑横着放和竖着放两种情况。发现还是 `fibonacci`。
+
+```cpp
+class Solution {
+public:
+    int rectCover(int number) {
+        if (number <= 1) {
+            return number;
+        }
+        
+        int first = 1, second = 1, third = first + second;
+        for (int i = 2; i <= number; i++) {
+            third = first + second;
+            first = second;
+            second = third;
+        }
+        
+        return third;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$。不过 `fibonacci` 写成矩阵快速幂复杂度可以变成 $$O(logn)$$
+
+## [二进制中1的个数](https://www.nowcoder.com/practice/8ee967e43c2c4ec193b040ea7fbb10b8?tpId=13&tqId=11164&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+$$(n - 1) & n$$ 的运算会吞掉最右边的 1。
+
+```cpp
+class Solution {
+public:
+     int  NumberOf1(int n) {
+         int count = 0;
+         while (n) {
+             count++;
+             n = (n - 1) & n;
+         }
+         return count;
+     }
+};
+```
+
+时间复杂度：$$O(n)$$，取决于 `n` 中 1 的个数。
+
+## [数值的整数次方](https://www.nowcoder.com/practice/1a834e5e3e1a4b7ba251417554e07c00?tpId=13&tqId=11165&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+快速幂。**注意一下 exponent 是负数的情况**
+
+```cpp
+class Solution {
+public:
+    double Power(double base, int exponent) {
+        double res = 1.0;
+        bool reciprocal = exponent < 0;
+        exponent = abs(exponent);
+        
+        while (exponent) {
+            if (exponent & 1 == 1) {
+                res *= base;
+            }
+            
+            base *= base;
+            exponent >>= 1;
+        }
+        
+        if (reciprocal) {   
+            res = 1.0 / res;
+        }
+        
+        return res;
+    }
+};
+```
+
+
+时间复杂度：$$O(logn)$$
+
+
+## [调整数组顺序使奇数位于偶数前面](https://www.nowcoder.com/practice/beb5aa231adc45b2a5dcc5b62c93f593?tpId=13&tqId=11166&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+因为得保证稳定性，所以想要时间复杂度是 $$O(n)$$ 的话，只能开辟一块空间来存储。
+
+```cpp
+class Solution {
+public:
+    void reOrderArray(vector<int> &array) {
+        stack<int> even;
+        
+        int cur = 0;
+        for (int i = 0; i < array.size(); i++) {
+            if (array[i] & 1 == 1) {
+                array[cur++] = array[i];
+            } else {
+                even.push(array[i]);
+            }
+        }
+        
+        for (int i = array.size() - 1; i >= cur; i--) {
+            int t = even.top(); even.pop();
+            array[i] = t;
+        }
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [链表中倒数第k个结点](https://www.nowcoder.com/practice/529d3ae5a407492994ad2a246518148a?tpId=13&tqId=11167&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+担心 `k` 会比总长度要大，所以算出总长度后，就可以直接得到对应的正数的位置。
+
+如果题目保证了 `k` 会比总长度要小，可以用一个 `fast` 和 `slow` 指针来做，常数的优化。
+
+```cpp
+/*
+struct ListNode {
+	int val;
+	struct ListNode *next;
+	ListNode(int x) :
+			val(x), next(NULL) {
+	}
+};*/
+class Solution {
+public:
+    ListNode* FindKthToTail(ListNode* pListHead, unsigned int k) {
+        int count = 0;
+        ListNode* now = pListHead;
+        
+        while (now != NULL) {
+            count++;
+            now = now -> next;
+        }
+        
+        if (k > count) {
+            return NULL;
+        }
+        
+        int target = count - k;
+        ListNode* res = pListHead;
+        while (target--) {
+            res = res -> next;
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [反转链表](https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=13&tqId=11168&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+反转链表，就改改指针就好了。
+
+```cpp
+/*
+struct ListNode {
+	int val;
+	struct ListNode *next;
+	ListNode(int x) :
+			val(x), next(NULL) {
+	}
+};*/
+class Solution {
+public:
+    ListNode* ReverseList(ListNode* pHead) {
+        if (pHead == NULL || pHead -> next == NULL) {
+            return pHead;
+        }
+        
+        ListNode* pre = NULL;
+        ListNode* now = pHead;
+        
+        while (now) {
+            ListNode* next = now -> next;
+            now -> next = pre;
+            pre = now;
+            now = next;
+        }
+        
+        return pre;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
