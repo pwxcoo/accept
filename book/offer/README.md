@@ -479,3 +479,149 @@ public:
 ```
 
 时间复杂度：$$O(n)$$
+
+## [合并两个排序的链表](https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337?tpId=13&tqId=11169&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+直接遍历就好了。
+
+```cpp
+/*
+struct ListNode {
+	int val;
+	struct ListNode *next;
+	ListNode(int x) :
+			val(x), next(NULL) {
+	}
+};*/
+class Solution {
+public:
+    ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
+    {
+        ListNode* dummy = new ListNode(0);
+        ListNode* now = dummy;
+        
+        while (pHead1 != NULL && pHead2 != NULL) {
+            if (pHead1 -> val < pHead2 -> val) {
+                now -> next = pHead1;
+                pHead1 = pHead1 -> next;
+            } else {
+                now -> next = pHead2;
+                pHead2 = pHead2 -> next;
+            }
+            
+            now = now -> next;
+        }
+        
+        now -> next = pHead1 != NULL ? pHead1 : pHead2;
+        
+        return dummy -> next;
+    }
+};
+```
+
+时间复杂度：$$O(length(pHead1) + length(pHead2))$$
+
+## [树的子结构](https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88?tpId=13&tqId=11170&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+1. 看根节点是否一致
+2. 然后比对 `Tree2` 中各个节点在 `Tree1` 中都有。
+
+```cpp
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+public:
+    bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
+    {
+        if (pRoot1 == NULL || pRoot2 == NULL) {
+            return false;
+        }
+        
+        return pRoot1 -> val == pRoot2 -> val && Tree1HasTree2(pRoot1, pRoot2)
+            || HasSubtree(pRoot1->left, pRoot2)
+            || HasSubtree(pRoot1->right, pRoot2);
+    }
+    
+    bool Tree1HasTree2(TreeNode* pRoot1, TreeNode* pRoot2) {
+        if (pRoot2 == NULL) return true;
+        if (pRoot1 == NULL) return false;
+        
+        return pRoot1 -> val == pRoot2 -> val
+            && Tree1HasTree2(pRoot1 -> left, pRoot2 -> left)
+            && Tree1HasTree2(pRoot1 -> right, pRoot2 -> right);
+    }
+};
+```
+
+时间复杂度：$$O(m*n)$$
+
+## [二叉树的镜像](https://www.nowcoder.com/practice/564f4c26aa584921bc75623e48ca3011?tpId=13&tqId=11171&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+递归一下。
+
+```cpp
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+public:
+    void Mirror(TreeNode *pRoot) {
+        if (pRoot == NULL) return;
+        
+        Mirror(pRoot -> left);
+        Mirror(pRoot -> right);
+        
+        swap(pRoot -> left, pRoot -> right);
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [顺时针打印矩阵](https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a?tpId=13&tqId=11172&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+顺时针打印矩阵。注意拐弯。
+
+```cpp
+class Solution {
+public:
+    vector<int> printMatrix(vector<vector<int> > matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        
+        int left = 0, right = m - 1, down = n - 1, up = 0;
+        vector<int> res;
+        int i, j;
+        while (true) {
+            for(int j = left; j <= right; j++) res.push_back(matrix[up][j]);
+            if (++up > down) break;
+            
+            for (int i= up; i <= down; i++) res.push_back(matrix[i][right]);
+            if (--right < left) break;
+            
+            for(int j = right; j >= left; j--) res.push_back(matrix[down][j]);
+            if (--down < up) break;
+            
+            for (int i = down; i >= up; i--) res.push_back(matrix[i][left]);
+            if (++left > right) break;
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n*m)$$
