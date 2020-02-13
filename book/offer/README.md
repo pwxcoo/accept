@@ -625,3 +625,397 @@ public:
 ```
 
 时间复杂度：$$O(n*m)$$
+
+## [包含min函数的栈](https://www.nowcoder.com/practice/4c776177d2c04c2494f2555c9fcc1e49?tpId=13&tqId=11173&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+多用一个栈用来保存前缀字符里最小的元素。
+
+```cpp
+class Solution {
+private:
+    stack<int> st;
+    stack<int> minst;
+public:
+    void push(int value) {
+        st.push(value);
+        
+        minst.push(minst.empty() || value < minst.top() ? value : minst.top());
+    }
+    void pop() {
+        st.pop();
+        minst.pop();
+    }
+    int top() {
+        return st.top();
+    }
+    int min() {
+        return minst.top();
+    }
+};
+```
+
+时间复杂度：$$O(1)$$
+
+
+## [栈的压入、弹出序列](https://www.nowcoder.com/practice/d77d11405cc7470d82554cb392585106?tpId=13&tqId=11174&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+模拟栈操作。
+
+```cpp
+class Solution {
+public:
+    bool IsPopOrder(vector<int> pushV,vector<int> popV) {
+        stack<int> st;
+        
+        int now = 0;
+        for (int i = 0; i < popV.size(); i++) {
+            while (st.empty() || st.top() != popV[i]) {
+                if (now >= pushV.size()) return false;
+                
+                st.push(pushV[now++]);
+            }
+            
+            st.pop();
+        }
+        
+        return true;
+    }
+};
+``
+
+时间复杂度：$$O(n)$$
+
+## [从上往下打印二叉树](https://www.nowcoder.com/practice/7fe2212963db4790b57431d9ed259701?tpId=13&tqId=11175&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+利用队列层次遍历树。
+
+```cpp
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+public:
+    vector<int> PrintFromTopToBottom(TreeNode* root) {
+        vector<int> res;  
+        queue<TreeNode*> q;
+        if (root != NULL) q.push(root);
+        
+        while (!q.empty()) {
+            TreeNode* t = q.front(); q.pop();
+            
+            res.push_back(t -> val);
+            if (t -> left) q.push(t -> left);
+            if (t -> right) q.push(t -> right);
+        }
+        
+        return res;
+    }
+};
+```
+
+
+时间复杂度：$$O(n)$$
+
+
+## [二叉搜索树的后序遍历序列](https://www.nowcoder.com/practice/a861533d45854474ac791d90e447bafd?tpId=13&tqId=11176&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+后序遍历。最右边的是根节点，然后根据 BST 的性质判断一波。
+
+```cpp
+class Solution {
+public:
+    bool VerifySquenceOfBST(vector<int> sequence) {
+        if (sequence.size() == 0) return false;
+        return isLegalPost(sequence, 0, sequence.size() - 1);
+    }
+    
+    bool isLegalPost(vector<int>& s, int L, int R) {
+        if (L >= R) return true;
+        
+        int seg = L;
+        while (seg < R && s[seg] < s[R]) {
+            seg++;
+        }
+        
+        
+        for (int i = seg; i < R; i++) {
+            if (s[i] < s[R]) return false;
+        }
+        
+        return isLegalPost(s, L, seg - 1) && isLegalPost(s, seg, R - 1);
+    }
+};
+```
+
+时间复杂度：$$O(n^2)$$
+
+## [二叉树中和为某一值的路径](https://www.nowcoder.com/practice/b736e784e3e34731af99065031301bca?tpId=13&tqId=11177&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+DFS。
+
+```cpp
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+private:
+    vector<int> cur;
+    vector<vector<int>> res;
+    
+    void DFS(TreeNode* root, int number) {
+        if (number == 0 && root -> left == NULL && root -> right == NULL) {
+            res.push_back(cur);
+        }
+        
+        if (root -> left) {
+            cur.push_back(root -> left -> val);
+            DFS(root -> left, number - root -> left -> val);
+            cur.pop_back();
+        }
+        
+        if (root -> right) {
+            cur.push_back(root -> right -> val);
+            DFS(root -> right, number - root -> right -> val);
+            cur.pop_back();
+        }
+    }
+    
+public:
+    vector<vector<int> > FindPath(TreeNode* root,int expectNumber) {
+        if (!root) return res;
+        cur.push_back(root -> val);
+        DFS(root, expectNumber - root -> val);
+        cur.pop_back();
+        
+        sort(res.begin(), res.end(), [](const vector<int>& a, const vector<int>& b) -> bool {
+            return a.size() > b.size();
+        });
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [复杂链表的复制](https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=11178&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+一种不用辅助空间的时间复杂度为 $$O(n)$$ 的算法。
+
+1. 遍历一遍，把生成的节点放在各自节点后面
+2. 在遍历一遍，赋值 random 指针。（这里相当于搞了 map 来映射）
+3. 然后分离目标链表和原链表
+
+```cpp
+/*
+struct RandomListNode {
+    int label;
+    struct RandomListNode *next, *random;
+    RandomListNode(int x) :
+            label(x), next(NULL), random(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    RandomListNode* Clone(RandomListNode* pHead) {
+        RandomListNode* dummy = new RandomListNode(0);
+        RandomListNode* res = dummy;
+        
+        RandomListNode* now = pHead;
+        while (now) {
+            RandomListNode* next = now -> next;
+            
+            RandomListNode* node = new RandomListNode(now -> label);
+            now -> next = node;
+            node -> next = next;
+            
+            now = next;
+        }
+        
+        now = pHead;
+        while (now) {
+            RandomListNode* node = now -> next;
+            RandomListNode* random = now -> random;
+            if (random) {
+                node -> random = random -> next;
+            }
+            
+            now = node -> next;
+        }
+        
+        now = pHead;
+        while (now) {
+            RandomListNode* node = now -> next;
+            
+            now -> next = node -> next;
+            res -> next = node;
+            res = res -> next;
+            
+            now = now -> next;
+            
+        }
+        
+        return dummy -> next;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&tqId=11179&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+中序遍历搞一下。
+
+```cpp
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+public:
+    TreeNode* Convert(TreeNode* pRootOfTree)
+    {
+        stack<TreeNode*> st;
+        TreeNode* now = pRootOfTree;
+        
+        TreeNode* pre;
+        TreeNode* res;
+        while (!st.empty() || now) {
+            while (now) {
+                st.push(now);
+                now = now -> left;
+            }
+            
+            if (!st.empty()) {
+                TreeNode* t = st.top(); st.pop();
+                if (pre) {
+                    pre -> right = t;
+                    t -> left = pre;
+                } else {
+                    res = t;
+                }
+                
+                pre = t;
+                now = t -> right;
+            }
+        }
+        
+        return res;
+    }
+};
+```
+
+## [字符串的排列](https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&tqId=11180&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+全排列。
+
+```cpp
+class Solution {
+private:
+    int visit[10];
+    set<string> s;
+    string cur;
+public:
+    void dfs(string& str) {
+        if (cur.length() == str.length()) {
+            s.insert(cur);
+            return;
+        }
+        
+        for (int i = 0; i < str.length(); i++) {
+            if (visit[i]) continue;
+            
+            visit[i] = 1;
+            cur += str[i];
+            dfs(str);
+            cur.pop_back();
+            visit[i] = 0;
+        }
+    }
+    
+    vector<string> Permutation(string str) {
+        if (str.length() == 0) return vector<string>();
+        
+        cur = "";
+        dfs(str);
+        vector<string> res(s.begin(), s.end());
+        
+        return res;
+    }
+};
+```
+
+用 `STL` 里的 `next_permutation()` 也可以做。
+
+```cpp
+class Solution {
+public:
+    vector<string> Permutation(string str) {
+      vector<string> result;
+      if(str == "") return result;
+      do {
+        result.push_back(str);
+      } while (next_permutation(str.begin(), str.end()));
+       
+      return result;
+    }
+
+```
+
+时间复杂度：$$O(n!)$$
+
+
+## [数组中出现次数超过一半的数字](https://www.nowcoder.com/practice/e8a1b01a2df14cb2b228b30ee6a92163?tpId=13&tqId=11181&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+
+[多数投票算法 Boyer–Moore majority vote algorithm](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm)。
+
+```cpp
+class Solution {
+public:
+    int MoreThanHalfNum_Solution(vector<int> numbers) {
+        int count = 0;
+        int lastNumber = 0;
+        
+        for (int i = 0; i < numbers.size(); i++) {
+            if (count == 0) {
+                count = 1;
+                lastNumber = numbers[i];
+            } else {
+                count = lastNumber == numbers[i] ? count + 1: count - 1;
+            }
+        }
+        
+        count = 0;
+        for (int i = 0; i< numbers.size(); i++) {
+            if (numbers[i] == lastNumber) count++;
+        }
+        if (count <= numbers.size() / 2) lastNumber = 0;
+        
+        return lastNumber;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+空间复杂度：$$O(1)$$
+
+
+## []
