@@ -1018,4 +1018,1027 @@ public:
 空间复杂度：$$O(1)$$
 
 
-## []
+## [最小的K个数](https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&tqId=11182&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+用堆来实现。
+
+```cpp
+class Solution {
+public:
+    vector<int> GetLeastNumbers_Solution(vector<int> input, int k) {
+        priority_queue<int> q;
+        
+        for (int i = 0; i < input.size(); i++) {
+            if (q.size() < k) {
+                q.push(input[i]);
+            } else {
+                if (!q.empty() && q.top() > input[i]) {
+                    q.pop();
+                    q.push(input[i]);
+                }
+            }
+        }
+        
+        vector<int> res;
+        if (q.size() == k) {
+            while (!q.empty()) {
+                res.push_back(q.top()); q.pop();
+            }
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(nlogk)$$
+
+另外可以用快排的思路做。时间复杂度可以是 $$O(n)$$
+
+
+## [连续子数组的最大和](https://www.nowcoder.com/practice/459bd355da1549fa8a49e350bf3df484?tpId=13&tqId=11183&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+写出 dp 方程就好了。可以写成以 `i` 为结尾的数组，最大的连续子数组的和就是当前前缀和减去最小的前缀和。
+
+```cpp
+class Solution {
+public:
+    int FindGreatestSumOfSubArray(vector<int> array) {
+        int minPrefixSum = 0;
+        int prefixSum = 0;
+        int res;
+        
+        for (int i = 0; i < array.size(); i++) {
+            prefixSum += array[i];
+            res = i == 0 ? prefixSum - minPrefixSum : max(res, prefixSum - minPrefixSum);
+            minPrefixSum = min(minPrefixSum, prefixSum);
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [整数中1出现的次数](https://www.nowcoder.com/practice/bd7f978302044eee894445e244c7eee6?tpId=13&tqId=11184&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+找规律。一个位数一个位数做。
+
+举例 $$12345$$，看百分位 $$3$$，$$3$$ 的 `left` 是 $$12$$，`right` 是 $$45$$。
+
+让百分位取 $$1$$。
+
+1. `left` 取 $$0-11$$ 是完全没问题的，随便取。这块有 $$12*100=1200$$ 种取法。
+2. `left` 取 $$12$$，发现当前位 `x` 是 $$3$$，所以对 `right` 是没有限制的，`right` 有 $$100$$ 种取法。
+
+而步骤 2 里取法，是对当前位数有要求的，必须是当前位 `x` 大于 $$1$$ 才行。如果当前位等于 $$1$$，比如数字是 $$12145$$ 算百分位，对 `right` 就有限制了，`right` 只能取到 $$0-45$$，有 $$46$$ 种取法。如果当前位等于 $$0$$，那 `right` 没办法取，自然只有 $$0$$ 种取法。
+
+
+```cpp
+class Solution {
+public:
+    int NumberOf1Between1AndN_Solution(int n)
+    {
+        int res = 0;
+        for (int i = 1; i <= n; i *= 10) {
+            res += n / (i * 10) * i;
+            int x = (n / i) % 10;
+            res += x > 1 ? i : (n % i + 1) * x;
+        }
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(logn)$$
+
+**PS:看别人写法还有用数位 DP 来做的**
+
+## [把数组排成最小的数](https://www.nowcoder.com/practice/8fecd3f8ba334add803bf2a06af1b993?tpId=13&tqId=11185&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+搞成字符串排序。其实就相当于字段序排序。
+
+```cpp
+class Solution {
+public:
+    string PrintMinNumber(vector<int> numbers) {
+        vector<string> sn;
+        for (int i = 0; i < numbers.size(); i++) {
+            sn.push_back(to_string(numbers[i]));
+        }
+        
+        sort(sn.begin(), sn.end(), [](const string& a, const string& b) -> bool {
+            return a + b < b + a;
+        });
+
+        string res;
+        for (const auto &piece : sn) res += piece;
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(nlogn)$$
+
+## [丑数](https://www.nowcoder.com/practice/6aa9e04fc3794f68acf8778237ba065b?tpId=13&tqId=11186&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+可以直到下一个丑数一定是当前丑数集合中，乘上 $$2$$ 或 $$3$$ 或 $$5$$ 得到的。
+
+维护一个 `t2`, `t3`, `t5`，`t2` 当前丑数中乘上 $$2$$ 就比当前最大丑数要大的丑数位置。
+
+```cpp
+class Solution {
+public:
+    int GetUglyNumber_Solution(int index) {
+        vector<int> uglyNumber;
+        uglyNumber.push_back(1);
+        
+        int t2 = 0, t3 = 0, t5 = 0;
+        for (int i = 1; i < index; i++) {
+            uglyNumber.push_back(min(uglyNumber[t2] *2, min(uglyNumber[t3] * 3, uglyNumber[t5] * 5)));
+            
+            while (uglyNumber[i] >= uglyNumber[t2] * 2) t2++;
+            while (uglyNumber[i] >= uglyNumber[t3] * 3) t3++;
+            while (uglyNumber[i] >= uglyNumber[t5] * 5) t5++;
+        }
+        
+        return uglyNumber[index - 1];
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [第一个只出现一次的字符](https://www.nowcoder.com/practice/1c82e8cf713b4bbeb2a5b31cf5b0417c?tpId=13&tqId=11187&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+开个 `map` 记一下。
+
+
+```cpp
+class Solution {
+public:
+    int FirstNotRepeatingChar(string str) {
+        unordered_map<char, int> m;
+        
+        for (const auto &c : str) m[c]++;
+        
+        for (int i = 0; i < str.length(); i++) {
+            if (m[str[i]] == 1) return i;
+        }
+        
+        return -1;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [数组中的逆序对](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=13&tqId=11188&tPage=2&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+利用归并排序的方法做到 $$O(nlogn)$$ 的复杂度。
+
+举例：归并的 `left` 是 `[3, 4]`，`right` 是 `[1, 2]`。
+
+归并的时候，`leftpointer` 在 `3` 处，`rightpointer` 在 `1` 处，`3 > 1` 可以得到 `3` 及 `3` 后面的数都会和 `1` 组成逆序对。所以逆序对 `+2`。
+
+```cpp
+class Solution {
+private:
+    const long long mod = 1000000007LL;
+public:
+    long long GetFromMerge(vector<int>& data, int left, int right) {
+        if (left == right) return 0LL;
+        
+        int mid = left + (right - left) / 2;
+        long long leftCount = GetFromMerge(data, left, mid);
+        long long rightCount = GetFromMerge(data, mid + 1, right);
+        long long mergeCount = 0;
+        
+        vector<int> merge;
+        int pl = left, pr = mid + 1;
+        while (pl <= mid || pr <= right) {
+            if (pl <= mid && pr <= right) {
+                if (data[pl] > data[pr]) {
+                    mergeCount = (mergeCount + mid - pl + 1) % mod;
+                    merge.push_back(data[pr++]);
+                } else {
+                    merge.push_back(data[pl++]);
+                }
+            } else {
+                if (pl <= mid) {
+                    merge.push_back(data[pl++]);
+                } else {
+                    merge.push_back(data[pr++]);
+                }
+            }
+        }
+        
+        for (int i = left; i <= right; i++) {
+            data[i] = merge[i - left];
+        }
+        
+        return ((leftCount + rightCount) % mod + mergeCount) % mod;
+    }
+    
+    int InversePairs(vector<int> data) {
+        return (int)GetFromMerge(data, 0, data.size() - 1);
+    }
+};
+```
+
+时间复杂度：$$O(nlogn)$$
+
+## [两个链表的第一个公共结点](https://www.nowcoder.com/practice/6ab1d9a29e88450685099d45c9e31e46?tpId=13&tqId=11189&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+求出两个链表长度，求出差值 `x`，长的那个先走 `x` 步。
+
+```cpp
+/*
+struct ListNode {
+	int val;
+	struct ListNode *next;
+	ListNode(int x) :
+			val(x), next(NULL) {
+	}
+};*/
+class Solution {
+public:
+    ListNode* FindFirstCommonNode( ListNode* pHead1, ListNode* pHead2) {
+        int l1 = 0, l2 = 0;
+        ListNode* p1 = pHead1;
+        ListNode* p2 = pHead2;
+        
+        while (p1) {
+            l1++;
+            p1 = p1 -> next;
+        }
+        while (p2) {
+            l2++;
+            p2 = p2 -> next;
+        }
+        
+        p1 = pHead1; p2 = pHead2;
+        int diff = abs(l1 - l2);
+        if (l1 > l2) {
+            while (diff--) {
+                p1 = p1 -> next;
+            }
+        } else {
+            while (diff--) {
+                p2 = p2 -> next;
+            }
+        }
+        
+        while (p1 != p2) {
+            p1 = p1 -> next;
+            p2 = p2 -> next;
+        }
+        
+        return p1;
+    }
+};
+```
+
+
+时间复杂度：$$O(n)$$
+
+## [数字在排序数组中出现的次数](https://www.nowcoder.com/practice/70610bf967994b22bb1c26f9ae901fa2?tpId=13&tqId=11190&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+相当于 `upper_bound() - lower_bound()`。
+
+```cpp
+class Solution {
+public:
+    int GetNumberOfK(vector<int> data ,int k) {
+        // return upper_bound(data.begin(), data.end(), k) - lower_bound(data.begin(), data.end(), k);
+        
+        int left = 0, right = data.size();
+        
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (data[mid] <= k) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        int upper = left;
+        
+        left = 0, right = data.size();
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (data[mid] < k) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        int lower = left;
+        
+        return upper - lower;
+    }
+};
+```
+
+时间复杂度：$$O(logn)$$
+
+## [二叉树的深度](https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&tqId=11191&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+递归一下。
+
+```cpp
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+public:
+    int TreeDepth(TreeNode* pRoot)
+    {
+        if (!pRoot) return 0;
+        int left = 0, right = 0;
+        
+        if (pRoot -> left) left = TreeDepth(pRoot -> left);
+        if (pRoot -> right) right = TreeDepth(pRoot -> right);
+        
+        return max(left, right) + 1;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [平衡二叉树](https://www.nowcoder.com/practice/8b3b95850edb4115918ecebdf1b4d222?tpId=13&tqId=11192&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+平衡二叉树俩性质：
+
+- 子树是平衡二叉树
+- 左右子树高度差小于等于 1
+
+俩都是相同形式的递归，如果重复写的话复杂度会达到 $$O(n^2)$$。剪枝一下，算高度的时候，用 `-1` 来表示该子树不是平衡二叉树了，避免重复计算。
+
+```cpp
+class Solution {
+public:
+    int height(TreeNode* pRoot) {
+        if (!pRoot) return 0;
+        int left = height(pRoot -> left);
+        int right = height(pRoot -> right);
+        
+        return left != -1 && right != -1 && abs(left - right) <= 1 ? max(left, right) + 1 : -1;
+    }
+    
+    bool IsBalanced_Solution(TreeNode* pRoot) {
+        return height(pRoot) != -1;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [数组中只出现一次的数字](https://www.nowcoder.com/practice/e02fdb54d7524710a7d664d082bb7811?tpId=13&tqId=11193&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+先求出总的异或值。
+
+`x & (-x)` 会得到 `x` 二进制里最右边的的 1，其他位都置为 0，记为 `seg`。
+
+于是根据根据 `seg` 按位与，可以将原数组分成两组，两个数字会分到两个组里。很妙的解法。
+
+
+```cpp
+class Solution {
+public:
+    void FindNumsAppearOnce(vector<int> data,int* num1,int *num2) {
+        int x = 0;
+        for (const auto& d : data) x ^= d;
+        
+        int seg = x & (-x);
+        *num1 = 0, *num2 = 0;
+        for (const auto& d : data) {
+            d & seg ? *num1 ^= d : *num2 ^= d;
+        }
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [和为S的连续正数序列](https://www.nowcoder.com/practice/c451a3fd84b64cb19485dad758a55ebe?tpId=13&tqId=11194&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+用一个窗口来做。
+
+
+```cpp
+class Solution {
+public:
+    vector<vector<int> > FindContinuousSequence(int sum) {
+        int const largest = (sum + 1) / 2;
+        int left = 1, right = 2;
+        
+        vector<vector<int>> res;
+        while (right <= largest) {
+            // 有溢出风险
+            int now = (left + right) * (right - left + 1) / 2;
+            
+            if (now == sum) {
+                vector<int> match;
+                for (int i = left; i <= right; i++) match.push_back(i);
+                res.push_back(match);
+                left++;
+            } else if (now < sum) {
+                right++;
+            } else {
+                left++;
+            }
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+看到别人有种 $$O(sqrt{n})$$ 的方法，根据通项公式确定序列长度的最大值，然后一边遍历一边根据长度的奇偶确定是否符合条件。
+
+
+## [和为S的两个数字](https://www.nowcoder.com/practice/390da4f7a00f44bea7c2f3d19491311b?tpId=13&tqId=11195&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+搞个哈希表存一下。
+
+```cpp
+class Solution {
+public:
+    vector<int> FindNumbersWithSum(vector<int> array,int sum) {
+        vector<int> res;
+        
+        unordered_set<int> s;
+        for (const int& num : array) {
+            if (s.find(sum - num) != s.end()) {
+                if (!res.empty() && res[0] * res[1] > (sum - num) * num) {
+                    res.clear();
+                }
+                
+                res.push_back(sum - num);
+                res.push_back(num);
+            }
+            
+            s.insert(num);
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [左旋转字符串](https://www.nowcoder.com/practice/12d959b108cb42b1ab72cef4d36af5ec?tpId=13&tqId=11196&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+没啥好讲的。。
+
+```cpp
+class Solution {
+public:
+    string LeftRotateString(string str, int n) {
+        int len = str.length(); 
+        if (len == 0) return str;
+        
+        n %= len;
+        return str.substr(n, len - n) + str.substr(0, n);
+    }
+};
+```
+
+时间复杂度：$$O(n % len)$$
+
+## [翻转单词顺序列](https://www.nowcoder.com/practice/3194a4f4cf814f63919d0790578d51f3?tpId=13&tqId=11197&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+整体反转再局部反转。
+
+```cpp
+class Solution {
+private:
+    void reverse(string& str, int left, int right) {
+        while (left < right) {
+            swap(str[left++], str[right--]);
+        }
+    }
+    
+public:
+    string ReverseSentence(string str) {
+        reverse(str, 0, str.length() - 1);
+        
+        int now = 0;
+        while (now < str.length()) {
+            while (now < str.length() && str[now] == ' ') now++;
+            
+            int end = now;
+            while (end < str.length() && str[end] != ' ') end++;
+            reverse(str, now, end - 1);
+            now = end + 1;
+        }
+        
+        return str;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [扑克牌顺子](https://www.nowcoder.com/practice/762836f4d43d43ca9deb273b3de8e1f4?tpId=13&tqId=11198&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+一开始直接模拟做了。
+
+```cpp
+class Solution {
+public:
+    bool IsContinuous( vector<int> numbers ) {
+        if (numbers.size() == 0) return false;
+        sort(numbers.begin(), numbers.end());
+        
+        int any = 0;
+        bool continuous = true;
+        bool begin = true;
+        int last;
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers[i] == 0) any++;
+            else {
+                if (begin) {
+                    begin = false;
+                } else {
+                    while (numbers[i] != last + 1 && any) {
+                        any--; last++;
+                    }
+                    
+                    if (numbers[i] != last + 1){
+                        continuous = false;
+                        break;
+                    }
+                }
+                
+                last = numbers[i];
+            }
+        }
+        
+        return continuous;
+    }
+};
+```
+
+看了下别人的解答。其实要满足两个条件就可以了：
+
+- 除 0 之外没有重复的数
+- 除 0 之外，`max - min = 5`
+
+```cpp
+class Solution {
+public:
+    bool IsContinuous( vector<int> numbers ) {
+        if (numbers.size() != 5) return false;
+        
+        int mx = -1, mn = 14;
+        int flag = 0;
+        for (const auto& num : numbers) {
+            if (num == 0) continue;
+            if (flag & (1 << num)) return false;
+            
+            flag = flag | (1 << num);
+            mx = max(mx, num);
+            mn = min(mn, num);
+        }
+        
+        return mx - mn < 5;
+    }
+};
+```
+
+
+时间复杂度：$$O(n)$$
+
+## [孩子们的游戏(圆圈中最后剩下的数)](https://www.nowcoder.com/practice/f78a359491e64a50bce2d89cff857eb6?tpId=13&tqId=11199&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+[约瑟夫环](https://pwxcoo.gitbook.io/algorithm/summary/josephus_circle)。
+
+```cpp
+class Solution {
+public:
+    int LastRemaining_Solution(int n, int m)
+    {
+        if (n == 0) return -1;
+        
+        int res = 0;
+        for (int i = 2; i <= n; i++) {
+            res = (res + m) % i;
+        }
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [求1+2+3+...+n](https://www.nowcoder.com/practice/7a0da8fc483247ff8800059e12d7caf1?tpId=13&tqId=11200&rp=2&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&tPage=3)
+
+利用短路运算符。（但是我感觉这个题目没什么意义= =）
+
+```cpp
+class Solution {
+public:
+    int Sum_Solution(int n) {
+        int ans = n;
+        ans && (ans += Sum_Solution(n - 1));
+        return ans;
+    }
+};
+```
+
+时间复杂度：$$O(logn)$$
+
+## [不用加减乘除做加法](https://www.nowcoder.com/practice/59ac416b4b944300b617d4f7f111b215?tpId=13&tqId=11201&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+`a + b = (a ^ b) + ((a & b) << 1)`。左边表示运算后的结果，右边表示进位。
+
+```cpp
+class Solution {
+public:
+    int Add(int num1, int num2)
+    {
+        // a + b = (a ^ b) + ((a & b) << 1);
+        while (num2) {
+            int result = num1 ^ num2;
+            int extra = (num1 & num2) << 1;
+            
+            num1 = result;
+            num2 = extra;
+        }
+        
+        return num1;
+    }
+};
+```
+
+时间复杂度：$$O(logn)$$
+
+## [把字符串转换成整数](https://www.nowcoder.com/practice/1277c681251b4372bdef344468e4f26e?tpId=13&tqId=11202&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+字符串转整型，学问多着呢。。测试用例也只考虑了：
+
+- 正负号
+- 超出 `int32` 范围
+- 非法字符
+
+```cpp
+class Solution {
+public:
+    int StrToInt(string str) {
+        int n = str.size(), s = 1;
+        long long res = 0;
+        if(!n) return 0;
+        if(str[0] == '-') s = -1;
+        for(int i = (str[0] ==  '-' || str[0] == '+') ? 1 : 0; i < n; ++i){
+            if(!('0' <= str[i] && str[i] <= '9')) return 0;
+            res = res * 10 + str[i] - '0';
+        } 
+        
+        res *= s;
+        return res > (int)0x7fffffff || res < (int)0x80000000 ? 0 : res;
+        // return res > INT_MAX || res < INT_MIN ? 0 : res;
+    }
+};
+```
+
+时间复杂度：$$O(length(str))$$
+
+## [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+尝试把每个数字归位，要是有重复的时候归位的时候就会碰到。
+
+```cpp
+class Solution {
+public:
+    // Parameters:
+    //        numbers:     an array of integers
+    //        length:      the length of array numbers
+    //        duplication: (Output) the duplicated number in the array number
+    // Return value:       true if the input is valid, and there are some duplications in the array number
+    //                     otherwise false
+    bool duplicate(int numbers[], int length, int* duplication) {
+        for(int i = 0; i < length;) {
+            if(numbers[i] == i) { 
+                i++;
+                continue;
+            }
+            
+            if(numbers[numbers[i]] == numbers[i]) {
+                (*duplication) = numbers[i];
+                return true;
+            } else {
+                swap(numbers[numbers[i]], numbers[i]);
+            }
+        }
+        return false;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+空间复杂度：$$O(1)$$
+
+## [构建乘积数组](https://www.nowcoder.com/practice/94a4d381a68b47b7a8bed86f2975db46?tpId=13&tqId=11204&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+前缀积和后缀积。
+
+```cpp
+class Solution {
+public:
+    vector<int> multiply(const vector<int>& A) {
+        int n = A.size();
+        vector<int> L(n);
+        vector<int> R(n);
+        vector<int> res(n);
+        
+        L[0] = A[0];
+        for (int i = 1; i < n; i++) {
+            L[i] = L[i - 1] * A[i];
+        }
+        
+        R[n - 1] = A[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            R[i] = R[i + 1] * A[i];
+        }
+        
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                res[i] = R[1];
+            } else if (i == n - 1) {
+                res[i] = L[n - 2];
+            } else {
+                res[i] = L[i - 1] * R[i + 1];
+            }
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [正则表达式匹配](https://www.nowcoder.com/practice/45327ae22b7b413ea21df13ee7d6429c?tpId=13&tqId=11205&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+以前用 dp 搞了一波，好像有别的写法。暂时懒得写。。下次再补。。
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [表示数值的字符串](https://www.nowcoder.com/practice/6f8c901d091949a5837e24bb82a731f2?tpId=13&tqId=11206&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [字符流中第一个不重复的字符](https://www.nowcoder.com/practice/00de97733b8e4f97a3fb5c680ee10720?tpId=13&tqId=11207&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+一个 map，一个 queue。
+
+map 用来记录有多少个字符，如果是第一次出现的，就插到 queue 里。后续重复插入后，在返回的时候懒删除就好了。
+
+```cpp
+
+```
+
+时间复杂度：$$O(1)$$
+
+## [链表中环的入口结点](https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=13&tqId=11208&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+1、设置快慢指针，假如有环，他们最后一定相遇。
+2、两个指针分别从链表头和相遇点继续出发，每次走一步，最后一定相遇与环入口。
+
+[之前在 gist 贴过推导。](https://gist.github.com/pwxcoo/b676c2053716930570b39ea730791e75)
+
+```cpp
+
+```
+
+时间复杂度：$$O(n)$$
+
+## [删除链表中重复的结点](https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef?tpId=13&tqId=11209&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [二叉树的下一个结点](https://www.nowcoder.com/practice/9023a0c988684a53960365b889ceaf5e?tpId=13&tqId=11210&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+1. 如果有右节点，返回右节点最左边的那个节点。
+2. 如果没有右节点，该节点不能是根节点（是根的话就没有下一个了）。找到父节点：
+    - 该节点是父节点的左孩子，返回父节点。
+    - 该节点是父节点的右孩子，继续找父节点重复步骤二
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [对称的二叉树](https://www.nowcoder.com/practice/ff05d44dfdb04e1d83bdbdab320efbcb?tpId=13&tqId=11211&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+递归，一左一右。
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [按之字形顺序打印二叉树](https://www.nowcoder.com/practice/91b69814117f4e8097390d107d2efbe0?tpId=13&tqId=11212&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+可以用两个栈。
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [把二叉树打印成多行](https://www.nowcoder.com/practice/445c44d982d04483b04a54f298796288?tpId=13&tqId=11213&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+层次遍历。不过要区分开哪个是那一层的节点，可以维护俩变量，一个表示当前层节点数，一个表示下一层节点数。
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [序列化二叉树](https://www.nowcoder.com/practice/cf7e25aa97c04cc1a68c8f040e71fb84?tpId=13&tqId=11214&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+这个题目的测试用例有点憨= =。其实 leetcode 上那种就是比较好的序列化方法。
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [二叉搜索树的第k个结点](https://www.nowcoder.com/practice/ef068f602dde4d28aab2b210e859150a?tpId=13&tqId=11215&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+中序遍历的第 k 个节点。
+
+```cpp
+
+```
+
+时间复杂度：$$$$
+
+## [数据流中的中位数](https://www.nowcoder.com/practice/9be0172896bd43948f8a32fb954e1be1?tpId=13&tqId=11216&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+数据分成两半。小的放左边的大顶堆，大的放右边的小顶堆。
+
+- 为了保证数据均匀分配。根据奇偶来选择插哪个堆
+- 为了保证左边永远小于右边，每次插的时候，根据两边的堆顶值来调整一下。
+
+```cpp
+class Solution {
+private:
+    priority_queue<int> L;
+    priority_queue<int, vector<int>, greater<int> > R;
+   
+public:
+    void Insert(int num) {
+        if((L.size() + R.size()) % 2 == 1) {
+            num > L.top() ? (R.push(num)) : (R.push(L.top()), L.pop(), L.push(num));
+        } else {
+            R.empty() || num < R.top() ? (L.push(num)) : (L.push(R.top()), R.pop(), R.push(num));
+        }
+    }
+ 
+    double GetMedian() {
+        return (L.size() + R.size()) % 2 == 1 ?
+            1.0 * L.top() :
+            1.0 * (L.top() + R.top()) / 2.0;
+    }
+
+};
+```
+
+时间复杂度：插入：$$O(logn)$$，查询：$$O(1)$$
+
+
+## [滑动窗口的最大值](https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&tqId=11217&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+单调队列（Monotonic Queue）。只关心窗口里的最大值。
+
+
+```cpp
+class Solution {
+public:
+    vector<int> maxInWindows(const vector<int>& num, unsigned int size)
+    {
+        vector<int> res;
+        
+        deque<int> dq;
+        for (int i = 0; i < num.size(); i++) {
+            if (!dq.empty() && dq.front() == i - size) dq.pop_front();
+            while (!dq.empty() && num[dq.back()] < num[i]) {
+                dq.pop_back();
+            }
+            dq.push_back(i);
+            if (i >= size - 1) res.push_back(num[dq.front()]);
+        }
+        
+        return res;
+    }
+};
+```
+
+时间复杂度：$$O(n)$$
+
+## [矩阵中的路径](https://www.nowcoder.com/practice/c61c6999eecb4b8f88a98f66b273a3cc?tpId=13&tqId=11218&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+dfs。
+
+```cpp
+
+```
+
+时间复杂度：
+
+## [机器人的运动范围](https://www.nowcoder.com/practice/6e5207314b5241fb83f2329e89fdecc8?tpId=13&tqId=11219&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+dfs。
+
+```cpp
+
+```
+
+时间复杂度：
+
+## [剪绳子](https://www.nowcoder.com/practice/57d85990ba5b440ab888fc72b0751bf8?tpId=13&tqId=33257&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+找规律的题，很精妙。
+
+贴一下别人的分析在注释里：
+
+```cpp
+/**
+ * 题目分析：
+ * 先举几个例子，可以看出规律来。
+ * 4 ： 2*2
+ * 5 ： 2*3
+ * 6 ： 3*3
+ * 7 ： 2*2*3 或者4*3
+ * 8 ： 2*3*3
+ * 9 ： 3*3*3
+ * 10：2*2*3*3 或者4*3*3
+ * 11：2*3*3*3
+ * 12：3*3*3*3
+ * 13：2*2*3*3*3 或者4*3*3*3
+ *
+ * 下面是分析：
+ * 首先判断k[0]到k[m]可能有哪些数字，实际上只可能是2或者3。
+ * 当然也可能有4，但是4=2*2，我们就简单些不考虑了。
+ * 5<2*3,6<3*3,比6更大的数字我们就更不用考虑了，肯定要继续分。
+ * 其次看2和3的数量，2的数量肯定小于3个，为什么呢？因为2*2*2<3*3，那么题目就简单了。
+ * 直接用n除以3，根据得到的余数判断是一个2还是两个2还是没有2就行了。
+ * 由于题目规定m>1，所以2只能是1*1，3只能是2*1，这两个特殊情况直接返回就行了。
+ *
+ * 乘方运算的复杂度为：O(log n)，用动态规划来做会耗时比较多。
+ */
+
+class Solution {
+public:
+    int cutRope(int number) {
+        if (number == 2) return 1;
+        if (number == 3) return 2;
+        
+        int x = number % 3;
+        int y = number / 3;
+        
+        if (x == 0) {
+            return pow(3, y);
+        } else if (x == 1) {
+            return 2 * 2 * pow(3, y - 1);
+        } else {
+            return x * pow(3, y);
+        }
+    }
+};
+```
+
+时间复杂度：$$logn$$
