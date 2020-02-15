@@ -1799,7 +1799,7 @@ public:
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [表示数值的字符串](https://www.nowcoder.com/practice/6f8c901d091949a5837e24bb82a731f2?tpId=13&tqId=11206&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1807,7 +1807,7 @@ public:
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [字符流中第一个不重复的字符](https://www.nowcoder.com/practice/00de97733b8e4f97a3fb5c680ee10720?tpId=13&tqId=11207&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1841,7 +1841,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [二叉树的下一个结点](https://www.nowcoder.com/practice/9023a0c988684a53960365b889ceaf5e?tpId=13&tqId=11210&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1854,7 +1854,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [对称的二叉树](https://www.nowcoder.com/practice/ff05d44dfdb04e1d83bdbdab320efbcb?tpId=13&tqId=11211&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1864,7 +1864,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [按之字形顺序打印二叉树](https://www.nowcoder.com/practice/91b69814117f4e8097390d107d2efbe0?tpId=13&tqId=11212&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1874,7 +1874,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [把二叉树打印成多行](https://www.nowcoder.com/practice/445c44d982d04483b04a54f298796288?tpId=13&tqId=11213&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1884,7 +1884,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [序列化二叉树](https://www.nowcoder.com/practice/cf7e25aa97c04cc1a68c8f040e71fb84?tpId=13&tqId=11214&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1894,7 +1894,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [二叉搜索树的第k个结点](https://www.nowcoder.com/practice/ef068f602dde4d28aab2b210e859150a?tpId=13&tqId=11215&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -1904,7 +1904,7 @@ map 用来记录有多少个字符，如果是第一次出现的，就插到 que
 
 ```
 
-时间复杂度：$$$$
+时间复杂度：
 
 ## [数据流中的中位数](https://www.nowcoder.com/practice/9be0172896bd43948f8a32fb954e1be1?tpId=13&tqId=11216&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
@@ -2041,4 +2041,4 @@ public:
 };
 ```
 
-时间复杂度：$$logn$$
+时间复杂度：$$O(logn)$$
