@@ -24,6 +24,10 @@
     * [leetcode932. Beautiful Array](./book/leetcode/leetcode932.md)
     * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
     * [leetcode964. Least Operators to Express Number](./book/leetcode/leetcode964.md)
+    * [leetcode1351. Count Negative Numbers in a Sorted Matrix](./book/leetcode/leetcode1351.md)
+    * [leetcode1352. Product of the Last K Numbers](./book/leetcode/leetcode1352.md)
+    * [leetcode1353. Maximum Number of Events That Can Be Attended](./book/leetcode/leetcode1353.md)
+    * [leetcode1354. Construct Target Array With Multiple Sums](./book/leetcode/leetcode1354.md)
 * [lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
