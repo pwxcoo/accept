@@ -22,16 +22,16 @@ public:
     bool isPossible(vector<int>& target) {
         long long sum = 0;
         long long mx = 0;
-        
+
         for (int i = 0; i < target.size(); i++) {
             mx = target[i] > target[mx] ? i : mx;
             sum += target[i];
         }
         if (target[mx] <= 1) return sum == target.size();
         if (2 * target[mx] - sum < 1) return false;
-        
+
         target[mx] = 2 * target[mx] - sum;
-        
+
         return isPossible(target);
     }
 };

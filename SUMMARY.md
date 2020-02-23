@@ -28,6 +28,10 @@
     * [leetcode1352. Product of the Last K Numbers](./book/leetcode/leetcode1352.md)
     * [leetcode1353. Maximum Number of Events That Can Be Attended](./book/leetcode/leetcode1353.md)
     * [leetcode1354. Construct Target Array With Multiple Sums](./book/leetcode/leetcode1354.md)
+    * [leetcode1360. Number of Days Between Two Dates](./book/leetcode/leetcode1360.md)
+    * [leetcode1361. Validate Binary Tree Nodes](./book/leetcode/leetcode1361.md)
+    * [leetcode1362. Closest Divisors](./book/leetcode/leetcode1362.md)
+    * [leetcode1363. Largest Multiple of Three](./book/leetcode/leetcode1363.md)
 * [lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
