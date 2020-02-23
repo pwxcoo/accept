@@ -7,7 +7,7 @@
 有一个数学知识很重要。[divisibility rule for 3](https://math.stackexchange.com/questions/341202/how-to-prove-the-divisibility-rule-for-3-casting-out-threes)。
 
 $$
-abcd % 3 = (a + b + c + d) % 3
+abcd \mod 3 = (a + b + c + d) \mod 3
 $$
 
 有了这个知识，可以发现只用算各个位数加起来的和就可以了，**溢出的问题解决了**，同时**数字顺序的问题也解决了**。
