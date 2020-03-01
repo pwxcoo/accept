@@ -32,6 +32,10 @@
     * [leetcode1361. Validate Binary Tree Nodes](./book/leetcode/leetcode1361.md)
     * [leetcode1362. Closest Divisors](./book/leetcode/leetcode1362.md)
     * [leetcode1363. Largest Multiple of Three](./book/leetcode/leetcode1363.md)
+    * [leetcode1365. How Many Numbers Are Smaller Than the Current Number](./book/leetcode/leetcode1365.md)
+    * [leetcode1366. Rank Teams by Votes](./book/leetcode/leetcode1366.md)
+    * [leetcode1367. Linked List in Binary Tree](./book/leetcode/leetcode1367.md)
+    * [leetcode1368. Minimum Cost to Make at Least One Valid Path in a Grid](./book/leetcode/leetcode1368.md)
 * [lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
