@@ -36,6 +36,10 @@
     * [leetcode1366. Rank Teams by Votes](./book/leetcode/leetcode1366.md)
     * [leetcode1367. Linked List in Binary Tree](./book/leetcode/leetcode1367.md)
     * [leetcode1368. Minimum Cost to Make at Least One Valid Path in a Grid](./book/leetcode/leetcode1368.md)
+    * [leetcode1370. Increasing Decreasing String](./book/leetcode/leetcode1370.md)
+    * [leetcode1371. Find the Longest Substring Containing Vowels in Even Counts](./book/leetcode/leetcode1371.md)
+    * [leetcode1372. Longest ZigZag Path in a Binary Tree](./book/leetcode/leetcode1372.md)
+    * [leetcode1373. Maximum Sum BST in Binary Tree](./book/leetcode/leetcode1373.md)
 * [lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
