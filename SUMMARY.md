@@ -40,6 +40,7 @@
     * [leetcode1371. Find the Longest Substring Containing Vowels in Even Counts](./book/leetcode/leetcode1371.md)
     * [leetcode1372. Longest ZigZag Path in a Binary Tree](./book/leetcode/leetcode1372.md)
     * [leetcode1373. Maximum Sum BST in Binary Tree](./book/leetcode/leetcode1373.md)
+    * [leetcode1401. Circle and Rectangle Overlapping](./book/leetcode/leetcode401.md)
 * [lintcode](./book/lintcode/README.md)
     * [lintcode617. Maximum Average Subarray II](./book/lintcode/lintcode617.md)./
 * [codeforces](./book/codeforces/README.md)
