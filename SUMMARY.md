@@ -24,6 +24,7 @@
     * [leetcode891. Sum of Subsequence Widths](./book/leetcode/leetcode891.md)
     * [leetcode932. Beautiful Array](./book/leetcode/leetcode932.md)
     * [leetcode956. Tallest Billboard](./book/leetcode/leetcode956.md)
+    * [leetcode1206. Design Skiplist](./book/leetcode/leetcode1206.md)
     * [leetcode964. Least Operators to Express Number](./book/leetcode/leetcode964.md)
     * [leetcode1351. Count Negative Numbers in a Sorted Matrix](./book/leetcode/leetcode1351.md)
     * [leetcode1352. Product of the Last K Numbers](./book/leetcode/leetcode1352.md)
