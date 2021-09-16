@@ -480,3 +480,5 @@ Accept Game
 - leetcode917 / 字符串
 ### 2021-09-15
 - leetcode978 / m / dp
+### 2021-09-16
+- leetcode54 / m / 模拟
