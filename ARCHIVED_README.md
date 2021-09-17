@@ -482,3 +482,5 @@ Accept Game
 - leetcode978 / m / dp
 ### 2021-09-16
 - leetcode54 / m / 模拟
+### 2021-09-17
+- leetcode350 / e / map记一下
