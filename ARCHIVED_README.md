@@ -476,3 +476,13 @@ Accept Game
 ### 2019-06-25
 - pat advanced 1144 / set
 - pat advanced 1145 / 哈希，平方探测法（Quadratic Probing）
+### 2021-09-14
+- leetcode917 / 字符串
+### 2021-09-15
+- leetcode978 / m / dp
+### 2021-09-16
+- leetcode54 / m / 模拟
+### 2021-09-17
+- leetcode350 / e / map记一下
+### 2021-09-19
+- leetcode2001 / m / gcd+组合
