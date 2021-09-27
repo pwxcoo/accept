@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Summary](./book/summary/README.md)
+    * [GCD](./book/summary/gcd.md)
     * [KMP](./book/summary/kmp.md)
     * [Josephus Circle](./book/summary/josephus_circle.md)
     * [Newton Method](./book/summary/newton_method.md)
